@@ -1,0 +1,14 @@
+.hero {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e1e2f, #151522);
+  color: white;
+}
+.hero-content h1 {
+  font-size: 3rem;
+}
+.highlight {
+  color: #8be9fd;
+}
