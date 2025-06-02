@@ -5,16 +5,27 @@
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
-  background: #1e1e2f;
-  color: white;
+  background: var(--bg-light);
+  color: var(--text-light);
   z-index: 1000;
 }
+
+.navbar-logo {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
 .navbar-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
 }
 .navbar-links a {
-  color: white;
+  color: var(--text-light);
   text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: var(--accent);
 }

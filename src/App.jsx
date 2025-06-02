@@ -1,14 +1,14 @@
 import './App.css'
-import Hero from './sections/Hero'
-import About from './sections/About'
-import Projects from './sections/Projects'
-import Contact from './sections/Contact'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import Hero from './sections/hero'
+import About from './sections/about'
+import Projects from './sections/projects'
+import Contact from './sections/contact'
+import Navbar from './components/navbar'
+import Footer from './components/footer'
 
 function App() {
   return (
-    <div>
+    <div clasName="app-container">
       <Navbar />
       <Hero />
       <About />

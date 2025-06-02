@@ -3,12 +3,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1e1e2f, #151522);
-  color: white;
+  background: var(--bg-dark);
+  color: var(--text-light);
 }
+
 .hero-content h1 {
   font-size: 3rem;
+  margin-bottom: 0.5rem;
 }
+
+.hero-content h2 {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.hero-content p {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
 .highlight {
-  color: #8be9fd;
+  color: var(--accent);
 }
