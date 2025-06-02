@@ -12,7 +12,7 @@ export default function Projects() {
             Used Unity Engine's UI System to create immersive health bars, stamina bars, pause menus and start menus.</p>
         </div>
         <div className="project-card">
-          <h3>Portfolio Website</h3>
+          <h3><a className="project-title-link" href="https://github.com/amcli/Personal-Website" target="_blank">Portfolio Website</a></h3>
           <p>This website--built with React and Vite and styled with CSS. I would like to add Tailwind CSS to optimize and improve appearance.</p>
         </div>
         <div className="project-card">

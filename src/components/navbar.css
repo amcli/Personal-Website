@@ -22,7 +22,7 @@
 }
 
 .navbar-name:hover {
-  color: var(--accent);
+  color: var(--complement);
   transition: color 0.3s;
 }
 
