@@ -21,3 +21,14 @@
 .project-card:hover {
   transform: translateY(-5px);
 }
+
+.project-title-link {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.project-title-link:hover {
+  text-decoration: underline;
+  color: var(--accent);
+  transition: color 0.5s;
+}

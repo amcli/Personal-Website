@@ -1,3 +1,13 @@
 .contact {
-  background-color: #f4f4f4;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+.contact a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
 }
