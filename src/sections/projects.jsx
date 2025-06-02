@@ -13,7 +13,7 @@ export default function Projects() {
         </div>
         <div className="project-card">
           <h3>Portfolio Website</h3>
-          <p>This website--built with React and Vite and styled with CSS.</p>
+          <p>This website--built with React and Vite and styled with CSS. Would like to add Tailwind CSS to optimize and improve appearance.</p>
         </div>
       </div>
     </section>
