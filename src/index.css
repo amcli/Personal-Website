@@ -11,5 +11,8 @@ body {
   background-color: var(--bg-dark);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-light);
+}
+
+html {
   scroll-behavior: smooth;
 }

@@ -15,6 +15,17 @@
   font-size: 1.25rem;
 }
 
+.navbar-name {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-name:hover {
+  color: var(--accent);
+  transition: color 0.3s;
+}
+
 .navbar-links {
   list-style: none;
   display: flex;
