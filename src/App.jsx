@@ -9,6 +9,7 @@ import Footer from './components/footer'
 function App() {
   return (
     <div clasName="app-container">
+      {/* <h1 className="text-4xl font-bold text-red-500">Tailwind is working!</h1> */}
       <Navbar />
       <Hero />
       <About />
