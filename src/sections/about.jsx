@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-[#1e1e1e] text-gray-300 py-20 px-6 flex justify-center"
+      className="py-20 px-6 flex justify-center items-center"
     >
       <motion.div 
         initial={{ opacity: 0, y: 50 }}

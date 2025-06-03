@@ -34,7 +34,7 @@ export default function Hero() {
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
           Hello, I'm{' '}
           <span className="text-white hover:text-blue-400 transition drop-shadow-md">
-            Andrew M C Li
+            Andrew
           </span>
         </h1>
         <h2 className="text-lg sm:text-xl md:text-2xl text-gray-400 tracking-wide">
