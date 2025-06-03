@@ -5,8 +5,20 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="bg-gradient-to-b from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] text-white py-16 px-6"
+      className="relative overflow-hidden bg-gradient-to-b from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] text-white py-16 px-6"
     >
+      <motion.div
+        className="absolute w-[150%] h-[150%] rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-pink-500 opacity-20 blur-3xl"
+      
+        animate={{
+          rotate: [0, 360],
+          scale: [1, 1.2, 1],
+        }}
+      
+        style={{ top: '-30%', left: '-30%', zIndex: 0 }}
+      />
+
+      
       <div className="max-w-7xl mx-auto text-center">
         {/*This framer motion sets up the fading and sliding of the heading */}
         <motion.h2 
@@ -77,7 +89,7 @@ export default function Projects() {
 
               transition={{ duration: 0.5, ease: "easeOut" }}
 
-              className="bg-[#1e1e1e] p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition transform duration-300"
+              className="bg-[#1e1e1e] z-20 relative p-6 rounded-2xl shadow-2xl hover:-translate-y-1 transition transform duration-300"
             >
               <h3 className="text-2xl font-semibold mb-2">
                 {project.link ? (
