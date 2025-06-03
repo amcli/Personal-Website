@@ -89,31 +89,63 @@ export default function Projects() {
 
               transition={{ duration: 0.5, ease: "easeOut" }}
 
-              className="bg-[#1e1e1e] z-20 relative p-6 rounded-2xl shadow-2xl hover:-translate-y-1 transition transform duration-300"
+              className="relative group bg-[#1e1e1e] z-20 relative p-6 rounded-2xl shadow-2xl hover:-translate-y-1 transition transform duration-300"
             >
-              <h3 className="text-2xl font-semibold mb-2">
-                {project.link ? (
-                  <a
-                    href={project.link}
 
-                    target="_blank"
+              <div
+                className={`absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-0
+                  ${idx === 0 ? 'bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-500'
+                  : idx === 1 ? 'bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500'
+                  : idx === 2 ? 'bg-gradient-to-br from-green-400 via-teal-500 to-cyan-500'
+                  : 'bg-gradient-to-br from-yellow-300 via-orange-400 to-pink-400'}
+                `}>
+              </div>
 
-                    rel="noopener noreferrer"
+              <div className="relative z-10">
+                <h3 className="text-2xl font-semibold mb-2">
+                  {project.link ? (
+                    <a
+                      href={project.link}
 
-                    className="text-white hover:text-blue-400 transition"
-                  >
-                    {project.title}
-                  </a>
-                ) : (
-                  <span className="text-gray-400">{project.title}</span>
+                      target="_blank"
+
+                      rel="noopener noreferrer"
+
+                      className={`transition duration-300 inline-block hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r
+                        ${
+                          idx === 0
+                            ? 'hover:from-blue-400 hover:to-purple-400'
+                            : idx === 1
+                            ? 'hover:from-pink-400 hover:to-yellow-400'
+                            : idx === 2
+                            ? 'hover:from-green-400 hover:to-cyan-400'
+                            : 'hover:from-yellow-300 hover:to-pink-400'
+                        }`}>
+              
+                      {project.title}
+                    </a>
+                  ) : (
+                    <span className={`transition duration-300 inline-block hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r
+                      ${
+                        idx === 0
+                          ? 'hover:from-blue-400 hover:to-purple-400'
+                          : idx === 1
+                          ? 'hover:from-pink-400 hover:to-yellow-400'
+                          : idx === 2
+                          ? 'hover:from-green-400 hover:to-cyan-400'
+                          : 'hover:from-yellow-300 hover:to-pink-400'
+                      }`}>
+                        {project.title}
+                    </span>
+                  )}
+                </h3>
+                <p className="text-gray-400 mb-2">{project.description}</p>
+
+                {project.tech && (
+                  <p className="text-gray-500 text-sm">{project.tech}</p>
                 )}
-              </h3>
-              <p className="text-gray-400 mb-2">{project.description}</p>
-
-              {project.tech && (
-                <p className="text-gray-500 text-sm">{project.tech}</p>
-              )}
-
+              </div>
+              
             </motion.div>
           ))}
 

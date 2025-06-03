@@ -13,13 +13,18 @@ export default function About() {
 
         transition={{ duration: 0.5, ease: "easeOut" }}
 
-        className="bg-[#2a2a2a] max-w-4xl w-full rounded-2xl p-8 shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl flex flex-col md:flex-row items-center gap-8"
+        className="relative group max-w-4xl w-full p-8 rounded-2xl shadow-lg bg-[#2a2a2a] flex flex-col md:flex-row items-center gap-8 hover:scale-105 transition-transform duration-300"
     >
+
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-0"></div>
+
         {/* Portrait Image Placeholder */}
-        <div className="w-40 h-40 rounded-full bg-gray-700 flex-shrink-0"></div>
+        <div className="relative z-10 flex-shrink-0">
+          <div className="w-40 h-40 rounded-full bg-gray-700 flex-shrink-0"></div>
+        </div>
 
         {/* Text Content */}
-        <div className="flex-1 space-y-4 text-center md:text-left">
+        <div className="relative z-10 flex-1 space-y-4 text-center md:text-left text-gray-300">
           <h2 className="text-3xl md:text-4xl font-bold text-white hover:text-blue-400 transition">About Me</h2>
           <p className="text-base md:text-lg leading-relaxed hover:text-blue-400 transition">
             I’m a software developer passionate about building innovative user experiences, especially in the realm of AR/VR and games.
