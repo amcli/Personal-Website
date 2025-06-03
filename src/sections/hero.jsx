@@ -41,7 +41,7 @@ export default function Hero() {
           Software and Fullstack Developer
         </h2>
         <p className="text-base sm:text-lg max-w-xl mx-auto text-white">
-          I love to build engaging and practical digital experiences that are fast, intuitive, and impactful.
+          Current 1B Computer Engineering student at the University of Waterloo
         </p>
       </motion.div>
     </section>

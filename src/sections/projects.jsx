@@ -5,9 +5,36 @@ export default function Projects() {
       className="bg-gradient-to-b from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] text-white py-16 px-6"
     >
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-10 text-blue-400">Projects</h2>
+        <motion.h2 
+          initial={{ opacity: 0, y: 50 }} 
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          whileInView={{ opacity: 1, y: 0 }} 
+
+          transition={{ duration: 0.5, ease: "easeOut" }} 
+          
+          className="text-4xl font-bold mb-10 text-blue-400"
+        >
+            Projects
+        </motion.h2>
+
+
+
+        <motion.div 
+          initial="hidden"
+
+          whileInView="visible"
+
+          transition={{ staggerChildren: 0.2 }}
+
+          viewport={{ once: true, amount: 0.2 }}
+
+          variants={{
+            hidden: {},
+            visible: {}
+          }}
+        
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           {/* Project 1 */}
           <div className="bg-[#1e1e1e] p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition transform duration-300">
             <h3 className="text-2xl font-semibold mb-2">
@@ -46,7 +73,7 @@ export default function Projects() {
             <h3 className="text-2xl font-semibold mb-2 text-gray-400">Empty Project</h3>
             <p className="text-gray-500">Project where??</p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
