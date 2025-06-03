@@ -13,7 +13,7 @@ export default function Navbar() {
         <ul className="flex gap-4 sm:gap-6 text-sm sm:text-base text-gray-300 font-medium">
           <li><a href="#about" className="hover:text-blue-400 transition">About</a></li>
           <li><a href="#projects" className="hover:text-blue-400 transition">Projects</a></li>
-          <li><a href="#contact" className="hover:text-blue-400 transition">Contact</a></li>
+          <li><a href="#contact" className="hover:text-blue-400 transition">Contact Me</a></li>
         </ul>
       </div>
 

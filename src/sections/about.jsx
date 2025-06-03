@@ -20,12 +20,12 @@ export default function About() {
 
         {/* Text Content */}
         <div className="flex-1 space-y-4 text-center md:text-left">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">About Me</h2>
-          <p className="text-base md:text-lg leading-relaxed">
+          <h2 className="text-3xl md:text-4xl font-bold text-white hover:text-blue-400 transition">About Me</h2>
+          <p className="text-base md:text-lg leading-relaxed hover:text-blue-400 transition">
             I’m a software developer passionate about building innovative user experiences, especially in the realm of AR/VR and games.
             I also have a strong interest in AI/ML and Fullstack Development.
           </p>
-          <p className="text-base md:text-lg leading-relaxed">
+          <p className="text-base md:text-lg leading-relaxed hover:text-blue-400 transition">
             I'm currently in my 1B term at the University of Waterloo for Computer Engineering, but I'm originally from Vancouver, BC.
           </p>
         </div>
