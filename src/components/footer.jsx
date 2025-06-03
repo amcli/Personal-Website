@@ -1,9 +1,19 @@
-import './footer.css'
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <motion.footer 
+    initial={{ opacity: 0, y: 50 }} 
+
+    whileInView={{ opacity: 1, y: 0 }} 
+
+    transition={{ duration: 0.6 }} 
+    
+    viewport={{ once: true }} 
+    
+    className="bg-[#1e1e1e] text-gray-400 py-6 text-center text-sm" 
+    >
       <p>&copy; 2025 Andrew M C Li. All rights reserved.</p>
-    </footer>
-  )
+    </motion.footer>
+  );
 }
