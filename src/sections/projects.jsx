@@ -78,7 +78,7 @@ export default function Projects() {
             
           ].map((project, idx) => (
 
-            //this motion.div allows the cards to slide and fade in smoothly with a st agger effect
+            //this motion.div allows the cards to slide and fade in smoothly with a stagger effect
             <motion.div
               key={idx}
               
@@ -89,19 +89,25 @@ export default function Projects() {
 
               transition={{ duration: 0.5, ease: "easeOut" }}
 
-              className="relative group bg-[#1e1e1e] z-20 relative p-6 rounded-2xl shadow-2xl hover:-translate-y-1 transition transform duration-300"
+              className="relative group"
             >
+            <div /*Wrapper class */className="relative transition-transform duration-300 group-hover:-translate-y-1 rounded-2xl">
 
-              <div
-                className={`absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-0
-                  ${idx === 0 ? 'bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-500'
-                  : idx === 1 ? 'bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500'
-                  : idx === 2 ? 'bg-gradient-to-br from-green-400 via-teal-500 to-cyan-500'
-                  : 'bg-gradient-to-br from-yellow-300 via-orange-400 to-pink-400'}
-                `}>
-              </div>
+                <div //Neon border on hover
+                  className={`absolute -inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300 ring-4 group-hover:animate-pulse
+                    ${
+                      idx === 0
+                        ? 'ring-blue-500'
+                        : idx === 1
+                        ? 'ring-pink-500'
+                        : idx === 2
+                        ? 'ring-green-400'
+                        : 'ring-yellow-400'
+                    }
+                  `}
+                ></div>
 
-              <div className="relative z-10">
+              <div /*Card content*/ className="relative z-10 bg-[#1e1e1e] p-6 rounded-2xl shadow-2xl">
                 <h3 className="text-2xl font-semibold mb-2">
                   {project.link ? (
                     <a
@@ -111,7 +117,7 @@ export default function Projects() {
 
                       rel="noopener noreferrer"
 
-                      className={`transition duration-300 inline-block hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r
+                      className={`inline-block transition duration-0 hover:text-transparent text-white hover:bg-clip-text hover:bg-gradient-to-r
                         ${
                           idx === 0
                             ? 'hover:from-blue-400 hover:to-purple-400'
@@ -125,7 +131,7 @@ export default function Projects() {
                       {project.title}
                     </a>
                   ) : (
-                    <span className={`transition duration-300 inline-block hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r
+                    <span className={`text-white transition duration-0 inline-block hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r
                       ${
                         idx === 0
                           ? 'hover:from-blue-400 hover:to-purple-400'
@@ -139,13 +145,13 @@ export default function Projects() {
                     </span>
                   )}
                 </h3>
-                <p className="text-gray-400 mb-2">{project.description}</p>
+                <p className="text-white mb-2">{project.description}</p>
 
                 {project.tech && (
-                  <p className="text-gray-500 text-sm">{project.tech}</p>
+                  <p className="text-white text-sm">{project.tech}</p>
                 )}
               </div>
-              
+            </div>
             </motion.div>
           ))}
 

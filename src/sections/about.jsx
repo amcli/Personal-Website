@@ -16,7 +16,7 @@ export default function About() {
         className="relative group max-w-4xl w-full p-8 rounded-2xl shadow-lg bg-[#2a2a2a] flex flex-col md:flex-row items-center gap-8 hover:scale-105 transition-transform duration-300"
     >
 
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-0"></div>
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-xl opacity-0 group-hover:opacity-15 transition-opacity duration-300 z-0"></div>
 
         {/* Portrait Image Placeholder */}
         <div className="relative z-10 flex-shrink-0">
