@@ -60,15 +60,16 @@ export default function Projects() {
               tech: "Built core mechanics in C# using OOP: input handling, collision detection, enemy AI, and UI systems like health/stamina bars and menus.",
             },
             {
-              title: "Portfolio Website",
-              link: "https://github.com/amcli/Personal-Website",
-              description: "This site! Built with React, Vite, and styled using Tailwind CSS for fast and responsive design.",
-              tech: null,
+              title: "Python RPG",
+              link: "https://github.com/amcli/PythonRPG",
+              description: "A turn-based RPG in Python",
+              tech: "Built with pygame. Dialogue will be randomized using OpenAI o3 generation.",
             },
             {
-              title: "Empty Project",
-              description: "Awaiting new projects!",
-              tech: null,
+              title: "Portfolio Website",
+              link: "https://github.com/amcli/Personal-Website",
+              description: "The personal portfolio website that you're looking at right now!",
+              tech: "Built in Javascript using Vite and React, styled with TailwindCSS"
             },
             {
               title: "Empty Project",
@@ -160,45 +161,3 @@ export default function Projects() {
     </section>
   );
 }
-
-
-{/* Old code prior to adding scrolling and element staggering */}
-
-      {/* Project 1
-          <div className="bg-[#1e1e1e] p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition transform duration-300">
-            <h3 className="text-2xl font-semibold mb-2">
-              <a href="https://github.com/amcli/Top-Down-2D-Unity" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition">
-                Top-Down Unity Game
-              </a>
-            </h3>
-            <p className="text-gray-400 mb-2">
-              A top-down Unity game where the player escapes mazes and defeats enemies.
-            </p>
-            <p className="text-gray-500 text-sm">
-              Built core mechanics in C# using OOP: input handling, collision detection, enemy AI, and UI systems like health/stamina bars and menus.
-            </p>
-          </div>
-
-          Project 2
-          <div className="bg-[#1e1e1e] p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition transform duration-300">
-            <h3 className="text-2xl font-semibold mb-2">
-              <a href="https://github.com/amcli/Personal-Website" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition">
-                Portfolio Website
-              </a>
-            </h3>
-            <p className="text-gray-400 mb-2">
-              This site! Built with React, Vite, and styled using Tailwind CSS for fast and responsive design.
-            </p>
-          </div>
-
-          Project 3
-          <div className="bg-[#1e1e1e] p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition transform duration-300">
-            <h3 className="text-2xl font-semibold mb-2 text-gray-400">Empty Project</h3>
-            <p className="text-gray-500">Awaiting new projects!</p>
-          </div>
-
-           Project 4
-          <div className="bg-[#1e1e1e] p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition transform duration-300">
-            <h3 className="text-2xl font-semibold mb-2 text-gray-400">Empty Project</h3>
-            <p className="text-gray-500">Project where??</p>
-          </div> */}
