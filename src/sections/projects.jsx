@@ -66,17 +66,17 @@ export default function Projects() {
               tech: "Built with pygame. Dialogue will be randomized using OpenAI o3 generation.",
             },
             {
+              title: "Fishy Business!",
+              link: "https://github.com/amcli/gdc-jam-2025",
+              description: "A fishing & restaurant managing game in Godot",
+              tech: "Used GDScript to handle animations, collision detection, state switching and event triggers \n Implemented randomized spawning and statistics; coded entity pathfinding and idle wandering",
+            },
+            {
               title: "Portfolio Website",
               link: "https://github.com/amcli/Personal-Website",
               description: "The personal portfolio website that you're looking at right now!",
               tech: "Built in Javascript using Vite and React, styled with TailwindCSS"
             },
-            {
-              title: "Empty Project",
-              description: "Project where??",
-              tech: null,
-            },
-            
           ].map((project, idx) => (
 
             //this motion.div allows the cards to slide and fade in smoothly with a stagger effect
