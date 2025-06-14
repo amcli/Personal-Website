@@ -57,19 +57,19 @@ export default function Projects() {
               title: "Top-Down Unity Game",
               link: "https://github.com/amcli/Top-Down-2D-Unity",
               description: "A top-down Unity game where the player escapes mazes and defeats enemies.",
-              tech: "Built core mechanics in C# using OOP: input handling, collision detection, enemy AI, and UI systems like health/stamina bars and menus.",
+              tech: "Built core mechanics in C# using OOP: input handling, collision detection, enemy AI, and UI systems like health/stamina bars and menus. \n Designed enemy spawn, pathfinding algorithm and movement mechanics.",
             },
             {
               title: "Python RPG",
-              link: "https://github.com/amcli/PythonRPG",
+              //removed link because I privated the repository since it contains an API key
               description: "A turn-based RPG in Python",
-              tech: "Built with pygame. Dialogue will be randomized using OpenAI o3 generation.",
+              tech: "Built with pygame. Dialogue will be randomized using OpenAI o3 generation with prompts that are parts of my self-written world and story.",
             },
             {
               title: "Fishy Business!",
               link: "https://github.com/amcli/gdc-jam-2025",
-              description: "A fishing & restaurant managing game in Godot",
-              tech: "Used GDScript to handle animations, collision detection, state switching and event triggers \n Implemented randomized spawning and statistics; coded entity pathfinding and idle wandering",
+              description: "A fishing & restaurant management game in Godot",
+              tech: "Used GDScript to handle animations, collision detection, state switching and event triggers. \n Implemented randomized spawning and statistics; coded entity pathfinding and idle wandering. \n switches scenes between a top-down view and a side view with animated transitions.",
             },
             {
               title: "Portfolio Website",
