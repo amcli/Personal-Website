@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-20 px-6 flex justify-center items-center"
+      className="bg-gradient-to-b from-[#1c1d26] via-[#242636] to-[#1c1d26] text-gray-300 py-20 px-6 flex justify-center items-center"
     >
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
@@ -13,10 +13,10 @@ export default function About() {
 
         transition={{ duration: 0.5, ease: "easeOut" }}
 
-        className="relative group max-w-4xl w-full p-8 rounded-2xl shadow-lg bg-[#2a2a2a] flex flex-col md:flex-row items-center gap-8 hover:scale-105 transition-transform duration-300"
+        className="relative group max-w-4xl w-full p-8 rounded-2xl shadow-lg bg-[#2a2a2a] flex flex-col md:flex-row items-center gap-8 hover:scale-105 transition-transform duration-150"
     >
 
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-xl opacity-0 group-hover:opacity-15 transition-opacity duration-300 z-0"></div>
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-xl opacity-0 group-hover:opacity-15 transition-opacity duration-150 z-0"></div>
 
         {/* Portrait Image Placeholder */}
         <div className="relative z-10 flex-shrink-0">

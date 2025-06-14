@@ -29,7 +29,7 @@ export default function Hero() {
 
         animate={{ opacity: 1, y: 0 }}
         
-        transition={{ duration: 0.4, ease: 'easeOut' }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
       >
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
           Hello, I'm{' '}
