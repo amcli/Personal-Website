@@ -38,7 +38,7 @@ export default function Hero() {
           </span>
         </h1>
         <h2 className="text-lg sm:text-xl md:text-2xl text-gray-400 tracking-wide">
-          Software and Fullstack Developer
+          Software, Fullstack, and Game Developer
         </h2>
         <p className="text-base sm:text-lg max-w-xl mx-auto text-white">
           Current 1B Computer Engineering student at the University of Waterloo

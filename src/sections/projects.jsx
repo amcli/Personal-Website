@@ -54,6 +54,12 @@ export default function Projects() {
           {/*Each card is generated with .map() for better scalability*/}
               {[
             {
+              title: "Goblinator",
+              link: "https://github.com/plane-paper/Goblinator",
+              description: "A web app that translates to and from brainrot and English",
+              tech: "Trained llama-3.2-3b-i model on a set of over 10k data points of brainrot text. \n Used Python and Flask to create an app that allows users to input text and get translations. \n Built a Python webscraper to scrape brainrot from subreddits. \n Implemented a user-friendly frontend with HTML, CSS, TailwindCSS and JavaScript.",
+            },
+            {
               title: "Top-Down Unity Game",
               link: "https://github.com/amcli/Top-Down-2D-Unity",
               description: "A top-down Unity game where the player escapes mazes and defeats enemies.",
@@ -70,12 +76,6 @@ export default function Projects() {
               link: "https://github.com/amcli/gdc-jam-2025",
               description: "A fishing & restaurant management game in Godot",
               tech: "Used GDScript to handle animations, collision detection, state switching and event triggers. \n Implemented randomized spawning and statistics; coded entity pathfinding and idle wandering. \n switches scenes between a top-down view and a side view with animated transitions.",
-            },
-            {
-              title: "Portfolio Website",
-              link: "https://github.com/amcli/Personal-Website",
-              description: "The personal portfolio website that you're looking at right now!",
-              tech: "Built in Javascript using Vite and React, styled with TailwindCSS"
             },
           ].map((project, idx) => (
 
