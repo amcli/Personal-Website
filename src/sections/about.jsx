@@ -7,7 +7,7 @@ export default function About() {
       className="bg-gradient-to-b from-[#1c1d26] via-[#242636] to-[#1c1d26] text-gray-300 py-20 px-6 flex justify-center items-center"
     >
       <motion.div 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 2 }}
 
         whileInView={{opacity: 1, y: 0 }}
 
