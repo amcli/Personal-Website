@@ -19,7 +19,7 @@ export default function Projects_Experience() {
       />
 
       
-      <div className="max-w-7xl mx-auto text-center mb-[32px]">
+      <div className="max-w-7xl mx-auto text-center mb-[64px]">
         {/*This framer motion sets up the fading and sliding of the heading */}
         <motion.h2 
           initial={{ opacity: 0, y: 50 }} 
@@ -56,12 +56,12 @@ export default function Projects_Experience() {
             {
               title: "AI Research Consultant",
               description: "WEAccelerate Microsoft Azure & AI Project Experience – Zanis Tech",
-              tech: "Researched and evaluated over 10 AI-driven features (personalized health suggestions and medical chatbots) for Zanis Tech’s upcoming healthcare platform. Conducted competitive analysis focusing on cost-efficiency, scalability, and user satisfaction to identify optimal solutions. Coordinated meetings with clients and third-party service providers to align technical capabilities with customer needs and pricing expectations.",
+              tech: "Researched and evaluated over 10 AI-driven features (personalized health suggestions and medical chatbots) for Zanis Tech's upcoming healthcare platform. Conducted competitive analysis focusing on cost-efficiency, scalability, and user satisfaction to identify optimal solutions. Coordinated meetings with clients and third-party service providers to align technical capabilities with customer needs and pricing expectations.",
             },
             {
-              title: "to be added",
-              description: "No job ;-;",
-              tech: "pls gimme job",
+              title: "Engineering Intern",
+              description: "Microm Group of Companies",
+              tech: "",
             },
             // {
             //   title: "Python RPG",
@@ -115,7 +115,7 @@ export default function Projects_Experience() {
                       target="_blank"
 
                       rel="noopener noreferrer"
-
+                      
                       className={`inline-block transition duration-0 hover:text-transparent text-white hover:bg-clip-text hover:bg-gradient-to-r
                         ${
                           idx === 0
