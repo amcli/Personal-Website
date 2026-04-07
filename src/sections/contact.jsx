@@ -3,6 +3,7 @@ import {
   Linkedin,
   Phone,
 } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 export default function Contact() {
   return (
@@ -17,6 +18,9 @@ export default function Contact() {
         </a>
         <a href="tel:7787065362" className="text-white hover:text-blue-400 transition duration-300">
           <Phone className="w-8 h-8" />
+        </a>
+        <a href="https://github.com/amcli" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition duration-300">
+          <FaGithub className="w-8 h-8" size={32} />
         </a>
       </div>
     </section>
