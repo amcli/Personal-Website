@@ -12,6 +12,7 @@ export default function Footer() {
       className="bg-[#1e1e1e] text-gray-400 py-6 text-center text-sm" 
     >
       <p>&copy; 2025 Andrew M C Li. All rights reserved.</p>
+      <p>Website created with React.js, HTML, CSS Tailwind,  and Vite</p>
     </motion.footer>
   );
 }

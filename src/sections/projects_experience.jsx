@@ -5,7 +5,7 @@ export default function Projects_Experience() {
   return (
     <section
       id="projects_experience"
-      className="relative overflow-hidden bg-gradient-to-b from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] text-white py-16 px-6"
+      className="relative overflow-hidden bg-gradient-to-b from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] text-white py-16 px-6 scroll-mt-20"
     >
       <motion.div
         className="absolute w-[150%] h-[150%] rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-pink-500 opacity-20 blur-3xl"
@@ -61,7 +61,7 @@ export default function Projects_Experience() {
             {
               title: "Engineering Intern",
               description: "Microm Group of Companies",
-              tech: "",
+              tech: "Developed a cross-platform firmware upgrade GUI in Python/Tkinter for Mircom's STM32-based fire alarm devices, supporting YMODEM, DFU, and ST-Link programming methods. Assisted in the development of automated QA testing software for the FX-4000N series fire panels, enabling serial commands to simulate physical button presses for remote, repeatable hardware testing. Designed and implemented an MVVM architecture to decouple UI from business logic, improving maintainability and scalability across multiple device configurations.",
             },
             // {
             //   title: "Python RPG",

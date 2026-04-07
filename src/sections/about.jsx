@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-gradient-to-b from-[#1c1d26] via-[#242636] to-[#1c1d26] text-gray-300 py-20 px-6 flex justify-center items-center"
+      className="bg-gradient-to-b from-[#1c1d26] via-[#242636] to-[#1c1d26] text-gray-300 py-20 px-6 flex justify-center items-center scroll-mt-20"
     >
       <motion.div 
         initial={{ opacity: 0, y: 2 }}
@@ -28,10 +28,10 @@ export default function About() {
           <h2 className="text-3xl md:text-4xl font-bold text-white hover:text-blue-400 transition">About Me</h2>
           <p className="text-base md:text-lg leading-relaxed hover:text-blue-400 transition">
             I’m a software developer passionate about building innovative user experiences, especially in the realm of AR/VR and games.
-            I also have a strong interest in AI/ML and Fullstack Development.
+            I also have a strong interest in AI/ML, Embedded, and Fullstack Development.
           </p>
           <p className="text-base md:text-lg leading-relaxed hover:text-blue-400 transition">
-            I'm currently in my 1B term at the University of Waterloo for Computer Engineering, but I'm originally from Vancouver, BC.
+            I'm currently in my 2A term at the University of Waterloo for Computer Engineering, but I'm originally from Vancouver, BC.
           </p>
         </div>
       </motion.div>
