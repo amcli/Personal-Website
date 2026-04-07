@@ -12,7 +12,7 @@ export default function Contact() {
         <a href="mailto:amcli@uwaterloo.ca" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition duration-300">
           <Mail className="w-8 h-8" />
         </a>
-        <a href="https://www.linkedin.com/in/andrewmcli/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition duration-300">
+        <a href="https://www.linkedin.com/in/amcli/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition duration-300">
           <Linkedin className="w-8 h-8" />
         </a>
         <a href="tel:7787065362" className="text-white hover:text-blue-400 transition duration-300">
