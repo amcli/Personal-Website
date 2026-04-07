@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import profilePhoto from "../assets/resumeimg.JPG";
 
 export default function About() {
   return (
@@ -20,7 +21,7 @@ export default function About() {
 
         {/* Portrait Image Placeholder */}
         <div className="relative z-10 flex-shrink-0">
-          <div className="w-40 h-40 rounded-full bg-gray-700 flex-shrink-0"></div>
+          <img src={profilePhoto} alt="Profile photo" className="w-40 h-40 rounded-full object-cover flex-shrink-0" />
         </div>
 
         {/* Text Content */}
