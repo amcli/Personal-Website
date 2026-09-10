@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Fireflies from '../components/fireflies';
+import Sparks from '../components/sparks';
 import FireflyEmblem from '../components/firefly_emblem';
 
 export default function Hero() {
@@ -21,6 +22,7 @@ export default function Hero() {
       <FireflyEmblem className="absolute left-1/2 top-1/2 z-0 w-[min(80vw,720px)] -translate-x-1/2 -translate-y-1/2 opacity-60 blur-[0.5px] pointer-events-none" />
 
       <Fireflies count={18} className="z-0" />
+      <Sparks count={28} className="z-0" />
 
       <motion.div
         className="relative space-y-6 z-10"
