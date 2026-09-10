@@ -5,23 +5,30 @@ import {
 } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
+const links = [
+  { href: "mailto:amcli@uwaterloo.ca", label: "Email", Icon: Mail, external: true },
+  { href: "https://www.linkedin.com/in/amcli/", label: "LinkedIn", Icon: Linkedin, external: true },
+  { href: "tel:7787065362", label: "Phone", Icon: Phone, external: false },
+  { href: "https://github.com/amcli", label: "GitHub", Icon: FaGithub, external: true },
+];
+
 export default function Contact() {
   return (
-    <section id="contact" className="bg-[#1e1e1e] text-white py-20 px-6 flex flex-col items-center scroll-mt-20">
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Contact Me</h2>
-      <div className="flex space-x-8">
-        <a href="mailto:amcli@uwaterloo.ca" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition duration-300">
-          <Mail className="w-8 h-8" />
-        </a>
-        <a href="https://www.linkedin.com/in/amcli/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition duration-300">
-          <Linkedin className="w-8 h-8" />
-        </a>
-        <a href="tel:7787065362" className="text-white hover:text-blue-400 transition duration-300">
-          <Phone className="w-8 h-8" />
-        </a>
-        <a href="https://github.com/amcli" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition duration-300">
-          <FaGithub className="w-8 h-8" size={32} />
-        </a>
+    <section id="contact" className="bg-ff-bg text-ff-text py-20 px-6 flex flex-col items-center scroll-mt-20">
+      <p className="ff-label mb-3">Δ ORDER</p>
+      <h2 className="text-3xl md:text-4xl font-bold text-ff-text mb-8">Contact Me</h2>
+      <div className="flex space-x-6">
+        {links.map(({ href, label, Icon, external }) => (
+          <a
+            key={label}
+            href={href}
+            aria-label={label}
+            {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            className="p-3 rounded-xl border border-ff-line text-ff-text hover:text-ff-teal hover:border-ff-teal/60 hover:shadow-[0_0_20px_rgba(95,232,209,0.25)] transition duration-300"
+          >
+            <Icon className="w-8 h-8" size={32} />
+          </a>
+        ))}
       </div>
     </section>
   );

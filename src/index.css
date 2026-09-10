@@ -1,7 +1,79 @@
 @import "tailwindcss";
+
+/*
+  Firefly / SAM (Honkai: Star Rail) theme tokens
+  ------------------------------------------------
+  ff-bg / ff-panel   -> SAM's gunmetal armor plating
+  ff-teal            -> Firefly's teal hair tips + SAM's awakened cyan flames
+  ff-ember           -> SAM's red-orange embers (basic form)
+  ff-glow            -> the yellow-green light of the fyreflies themselves
+  ff-pink / ff-ocean -> Firefly's eyes (deep ocean blue -> sunset pink)
+*/
+@theme {
+  --color-ff-bg: #0b0e12;
+  --color-ff-bg-2: #10151b;
+  --color-ff-panel: #151b22;
+  --color-ff-line: #24303a;
+  --color-ff-text: #e9f1ee;
+  --color-ff-muted: #94a39f;
+
+  --color-ff-teal: #5fe8d1;
+  --color-ff-teal-deep: #1fb8a6;
+  --color-ff-ember: #ff7a3c;
+  --color-ff-glow: #d9f76b;
+  --color-ff-pink: #f5a3c7;
+  --color-ff-ocean: #4aa8ff;
+}
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
-  @apply bg-[#1e1e1e] text-white;
+  @apply bg-ff-bg text-ff-text antialiased;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-ff-teal) 35%, transparent);
+  color: var(--color-ff-text);
+}
+
+/* Firefly's eye gradient: ocean blue -> teal -> sunset pink */
+.ff-eye-gradient {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-ff-ocean),
+    var(--color-ff-teal) 45%,
+    var(--color-ff-pink)
+  );
+}
+
+/* Small mono "designation" labels, in the spirit of AR-26710 / Module α */
+.ff-label {
+  @apply font-mono text-xs tracking-[0.3em] text-ff-teal/80;
+}
+
+/* HUD corner brackets used on panels (SAM's targeting overlay) */
+.ff-corners::before,
+.ff-corners::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--color-ff-teal);
+  border-style: solid;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.ff-corners::before {
+  top: 10px;
+  left: 10px;
+  border-width: 1.5px 0 0 1.5px;
+  border-top-left-radius: 4px;
+}
+.ff-corners::after {
+  bottom: 10px;
+  right: 10px;
+  border-width: 0 1.5px 1.5px 0;
+  border-bottom-right-radius: 4px;
 }
