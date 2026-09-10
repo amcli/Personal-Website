@@ -2,41 +2,39 @@ import CardGrid from "../components/card_grid";
 
 const experience = [
   {
-    title: "AI Research Consultant",
-    description: "WEAccelerate Microsoft Azure & AI Project Experience – Zanis Tech",
-    tech: "Researched and evaluated over 10 AI-driven features (personalized health suggestions and medical chatbots) for Zanis Tech's upcoming healthcare platform. Conducted competitive analysis focusing on cost-efficiency, scalability, and user satisfaction to identify optimal solutions. Coordinated meetings with clients and third-party service providers to align technical capabilities with customer needs and pricing expectations.",
+    title: "AI Adoption Software Developer",
+    description: "Hauser Industries & Communitech",
+    tech: "Built a full-stack AI-assisted quoting engine (React/TS + FastAPI) that estimates costs with a multi-agent LangChain workflow. Added an admin interface for quote configuration and automated NetSuite data entry end-to-end.",
   },
   {
-    title: "Engineering Intern",
-    description: "Microm Group of Companies",
-    tech: "Developed a cross-platform firmware upgrade GUI in Python/Tkinter for Mircom's STM32-based fire alarm devices, supporting YMODEM, DFU, and ST-Link programming methods. Assisted in the development of automated QA testing software for the FX-4000N series fire panels, enabling serial commands to simulate physical button presses for remote, repeatable hardware testing. Designed and implemented an MVVM architecture to decouple UI from business logic, improving maintainability and scalability across multiple device configurations.",
+    title: "Firmware Engineering Intern",
+    description: "Mircom Group of Companies",
+    tech: "Built a cross-platform Python/Tkinter tool for flashing STM32 firmware over serial and USB, and an embedded C bootloader for over-the-air updates. Automated the team's regression and QA test suite.",
   },
 ];
 
 const projects = [
   {
+    title: "Parry Arena",
+    description: "A C# Unity combat game with dynamic, reactive enemy AI",
+    tech: "A shared combat system for players and AI, with enemies that react dynamically to the player's attacks based on adjustable behavior parameters.",
+  },
+  {
+    title: "DnD Campaign Manager",
+    description: "A Java/Spring Boot backend for managing tabletop RPG campaigns",
+    tech: "A polymorphic schema and REST API supporting multiple tabletop RPG rule systems, built with Spring Boot, MySQL, and Docker.",
+  },
+  {
     title: "Goblinator",
     link: "https://github.com/plane-paper/Goblinator",
-    description: "A web app that translates to and from brainrot and English",
-    tech: "Trained llama-3.2-3b-i model on a set of over 10k data points of brainrot text. \n Used Python and Flask to create an app that allows users to input text and get translations. \n Built a Python webscraper to scrape brainrot from subreddits. \n Implemented a user-friendly frontend with HTML, CSS, TailwindCSS and JavaScript.",
-  },
-  {
-    title: "Top-Down Unity Game",
-    link: "https://github.com/amcli/Top-Down-2D-Unity",
-    description: "A top-down Unity game where the player escapes mazes and defeats enemies.",
-    tech: "Built core mechanics in C# using OOP: input handling, collision detection, enemy AI, and UI systems like health/stamina bars and menus. \n Designed enemy spawn, pathfinding algorithm and movement mechanics.",
-  },
-  {
-    title: "Python RPG",
-    //removed link because I privated the repository since it contains an API key
-    description: "A turn-based RPG in Python",
-    tech: "Built with pygame. Dialogue will be randomized using OpenAI o3 generation with prompts that are parts of my self-written world and story.",
+    description: "A web app that translates Gen-Z slang to and from English",
+    tech: "A fine-tuned Llama 3.2 model paired with a React frontend, deployed via Vercel CI/CD.",
   },
   {
     title: "Fishy Business!",
     link: "https://github.com/amcli/gdc-jam-2025",
     description: "A fishing & restaurant management game in Godot",
-    tech: "Used GDScript to handle animations, collision detection, state switching and event triggers. \n Implemented randomized spawning and statistics; coded entity pathfinding and idle wandering. \n switches scenes between a top-down view and a side view with animated transitions.",
+    tech: "Randomized fish attributes and spawn conditions, with finite-state-machine-driven AI for realistic fish behavior.",
   },
 ];
 
