@@ -16,11 +16,13 @@ const experience = [
 const projects = [
   {
     title: "Parry Arena",
+    link: "https://github.com/amcli/HackAndSlash",
     description: "A C# Unity combat game with dynamic, reactive enemy AI",
     tech: "A shared combat system for players and AI, with enemies that react dynamically to the player's attacks based on adjustable behavior parameters.",
   },
   {
     title: "DnD Campaign Manager",
+    link: "https://github.com/amcli/campaign-manager",
     description: "A Java/Spring Boot backend for managing tabletop RPG campaigns",
     tech: "A polymorphic schema and REST API supporting multiple tabletop RPG rule systems, built with Spring Boot, MySQL, and Docker.",
   },
