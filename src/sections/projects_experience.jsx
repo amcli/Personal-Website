@@ -46,7 +46,6 @@ export default function Projects_Experience() {
       id="projects_experience"
       className="relative overflow-hidden bg-gradient-to-b from-ff-bg via-ff-bg-2 to-ff-bg text-ff-text py-16 px-6 scroll-mt-20"
     >
-      {/* Soft ambient glows: teal (Firefly) top-left, ember (SAM) bottom-right */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{

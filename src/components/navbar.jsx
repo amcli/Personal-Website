@@ -20,7 +20,6 @@ export default function Navbar() {
         </ul>
       </div>
 
-      {/* Thin ignition line: teal fading into ember, like SAM's flame edge */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-ff-teal/60 to-ff-ember/40" />
     </nav>
   );

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 
-// Cards alternate between Firefly (teal) and SAM (ember) accents.
 const accents = [
   {
     ring: "ring-ff-teal",
@@ -54,7 +53,7 @@ export default function CardGrid({ label, heading, items, boldDescription = fals
             >
               <div /*Wrapper class */ className={`relative transition-all duration-300 group-hover:-translate-y-1 rounded-2xl ${accent.shadow}`}>
 
-                <div //Ignition ring on hover
+                <div //Neon border on hover
                   className={`absolute -inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300 ring-2 group-hover:animate-pulse ${accent.ring}`}
                 ></div>
 

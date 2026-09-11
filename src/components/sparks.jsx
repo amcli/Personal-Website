@@ -1,10 +1,6 @@
 import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-// Flying sparks, in the two flame colors from Firefly's Ultimate: the cyan
-// flames of Complete Combustion and the orange embers SAM throws off as she
-// transforms. Each spark is a short glowing streak that shoots up from the
-// lower half of the hero, drifting sideways as it fades.
 const CYAN = ["#7ff7e6", "#5fe8d1", "#b8fff2"];
 const EMBER = ["#ff7a3c", "#ffa04a", "#ffd27a"];
 
@@ -12,7 +8,7 @@ export default function Sparks({ count = 28, className = "" }) {
   const reduceMotion = useReducedMotion();
 
   const sparks = useMemo(() => {
-    let seed = 2410; // Firefly's Ultimate energy cost
+    let seed = 2410;
     const rand = () => {
       seed = (seed * 9301 + 49297) % 233280;
       return seed / 233280;

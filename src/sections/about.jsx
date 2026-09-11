@@ -8,7 +8,6 @@ export default function About() {
       id="about"
       className="relative overflow-hidden bg-gradient-to-b from-ff-bg via-ff-bg-2 to-ff-bg text-ff-muted py-20 px-6 flex justify-center items-center scroll-mt-20"
     >
-      {/* Flies behind the card: the opaque panel occults it mid-flight */}
       <FireflyFlyby count={2} className="z-0" />
 
       <motion.div
@@ -21,10 +20,9 @@ export default function About() {
         className="ff-corners relative z-10 group max-w-4xl w-full p-8 rounded-2xl shadow-lg bg-ff-panel border border-ff-line flex flex-col md:flex-row items-center gap-8 hover:scale-105 hover:border-ff-teal/40 transition-all duration-150"
     >
 
-        {/* Ignition glow on hover: teal flame with an ember edge */}
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ff-teal via-ff-glow to-ff-ember blur-xl opacity-0 group-hover:opacity-15 transition-opacity duration-150 z-0"></div>
 
-        {/* Portrait */}
+        {/* Portrait Image Placeholder */}
         <div className="relative z-10 flex-shrink-0">
           <img
             src={profilePhoto}

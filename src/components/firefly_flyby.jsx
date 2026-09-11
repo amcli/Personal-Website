@@ -1,12 +1,6 @@
 import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-// A single glowing mote — blending Firefly's teal and the fyrefly glow —
-// that occasionally streaks across a section, trailing a comet-style trail
-// of faint delayed copies of itself along the same path. The flight path is
-// stitched from randomized segments: some level, some a sine wave, some a
-// parabolic arc, some an accelerating swoop, so no two passes read the same.
-
 const SEGMENT_TYPES = ["straight", "sine", "parabola", "exp"];
 const SAMPLES_PER_SEGMENT = 10;
 const SEGMENT_COUNT = 5;
@@ -17,10 +11,7 @@ const easeOutExpo = (t) => (t >= 1 ? 1 : 1 - 2 ** (-10 * t));
 
 const DOT_GRADIENT = "radial-gradient(circle, #eefcd8 0%, #d9f76b 45%, #5fe8d1 100%)";
 
-// The lead dot plus a short comet-tail of delayed copies of itself, each
-// replaying the exact same flight keyframes a beat later — since they
-// follow the identical (curved) path just time-shifted, they trace out a
-// genuine trail behind the head as it flies.
+// Delayed copies of the lead dot replaying the same path form the trail.
 const TAIL = [
   { lag: 0, size: 7, peak: 1 },
   { lag: 0.05, size: 5.5, peak: 0.6 },
@@ -34,7 +25,7 @@ export default function FireflyFlyby({ count = 2, className = "" }) {
   const reduceMotion = useReducedMotion();
 
   const flights = useMemo(() => {
-    let seed = 26702; // another Iron Cavalry designation, AR-26702
+    let seed = 26702;
     const rand = () => {
       seed = (seed * 9301 + 49297) % 233280;
       return seed / 233280;
@@ -43,11 +34,7 @@ export default function FireflyFlyby({ count = 2, className = "" }) {
     return Array.from({ length: count }, (_, i) => {
       const rightward = i % 2 === 0;
 
-      // Stitch a variable vertical trajectory from randomized segments.
-      // "straight" holds level; "sine"/"parabola" are self-contained bumps
-      // that return to the running height; "exp" eases toward a new height
-      // (and warps horizontal progress too, for a genuine accelerating
-      // swoop rather than just a vertical wobble).
+      // "exp" segments also warp horizontal progress, for an accelerating swoop.
       let running = 0; // normalized, -1..1
       const times = [];
       const yOffsets = [];
@@ -84,8 +71,6 @@ export default function FireflyFlyby({ count = 2, className = "" }) {
         if (type === "exp") running = target;
       }
 
-      // Horizontal position at each of those same (possibly warped) times,
-      // so an "exp" segment's acceleration shows up in both axes at once.
       const xKeyframes = times.map((t) => (rightward ? -15 + 130 * t : 115 - 130 * t));
 
       return {
@@ -109,8 +94,7 @@ export default function FireflyFlyby({ count = 2, className = "" }) {
       {flights.map((f) => {
         const xVw = f.xKeyframes.map((v) => `${v}vw`);
 
-        // Render the longest-lag (faintest) copies first so the bright lead
-        // dot (lag 0) always paints on top wherever the path crosses itself.
+        // Faintest/longest-lag copies first, so the lead dot paints on top.
         const order = [...TAIL].reverse();
 
         return (

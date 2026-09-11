@@ -1,14 +1,11 @@
 import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-// Drifting, blinking firefly lights. Positions are seeded so the layout is
-// stable between renders; colors alternate between the fyrefly glow and
-// Firefly's teal.
 export default function Fireflies({ count = 16, className = "" }) {
   const reduceMotion = useReducedMotion();
 
   const flies = useMemo(() => {
-    let seed = 26710; // AR-26710
+    let seed = 26710;
     const rand = () => {
       seed = (seed * 9301 + 49297) % 233280;
       return seed / 233280;

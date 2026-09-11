@@ -9,7 +9,6 @@ export default function Hero() {
       id="hero"
       className="relative overflow-hidden min-h-screen flex items-center justify-center text-center px-6 bg-gradient-to-b from-ff-bg via-ff-bg-2 to-ff-bg text-ff-text"
     >
-      {/* Rising flame glow: teal at the base, a faint ember tint above it */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
@@ -18,7 +17,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Firefly's emblem, a faint teal sketch sitting behind the headline */}
       <FireflyEmblem className="absolute left-1/2 top-1/2 z-0 w-[min(80vw,720px)] -translate-x-1/2 -translate-y-1/2 opacity-60 blur-[0.5px] pointer-events-none" />
 
       <Fireflies count={18} className="z-0" />
