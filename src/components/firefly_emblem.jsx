@@ -1,5 +1,4 @@
-// Firefly's emblem (the winged firefly with the teardrop core), traced from the
-// reference artwork and drawn as a faint teal sketch for the hero background.
+// Firefly's emblem, traced from reference artwork.
 export default function FireflyEmblem({ className = "" }) {
   return (
     <svg
