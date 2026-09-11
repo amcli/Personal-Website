@@ -27,7 +27,7 @@ export default function About() {
         {/* Portrait */}
         <div className="relative z-10 flex-shrink-0">
           <img
-            // src={profilePhoto}
+            src={profilePhoto}
             alt="Profile photo"
             className="w-40 h-40 rounded-full object-cover flex-shrink-0 ring-2 ring-ff-teal/60 ring-offset-4 ring-offset-ff-panel group-hover:ring-ff-teal group-hover:shadow-[0_0_28px_rgba(95,232,209,0.35)] transition"
           />
