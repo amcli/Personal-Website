@@ -1,20 +1,24 @@
 import { motion } from "framer-motion";
 import profilePhoto from "../assets/resumeimg.JPG";
+import FireflyFlyby from "../components/firefly_flyby";
 
 export default function About() {
   return (
     <section
       id="about"
-      className="bg-gradient-to-b from-ff-bg via-ff-bg-2 to-ff-bg text-ff-muted py-20 px-6 flex justify-center items-center scroll-mt-20"
+      className="relative overflow-hidden bg-gradient-to-b from-ff-bg via-ff-bg-2 to-ff-bg text-ff-muted py-20 px-6 flex justify-center items-center scroll-mt-20"
     >
-      <motion.div 
+      {/* Flies behind the card: the opaque panel occults it mid-flight */}
+      <FireflyFlyby count={2} className="z-0" />
+
+      <motion.div
         initial={{ opacity: 0, y: 2 }}
 
         whileInView={{opacity: 1, y: 0 }}
 
         transition={{ duration: 0.5, ease: "easeOut" }}
 
-        className="ff-corners relative group max-w-4xl w-full p-8 rounded-2xl shadow-lg bg-ff-panel border border-ff-line flex flex-col md:flex-row items-center gap-8 hover:scale-105 hover:border-ff-teal/40 transition-all duration-150"
+        className="ff-corners relative z-10 group max-w-4xl w-full p-8 rounded-2xl shadow-lg bg-ff-panel border border-ff-line flex flex-col md:flex-row items-center gap-8 hover:scale-105 hover:border-ff-teal/40 transition-all duration-150"
     >
 
         {/* Ignition glow on hover: teal flame with an ember edge */}
@@ -23,7 +27,7 @@ export default function About() {
         {/* Portrait */}
         <div className="relative z-10 flex-shrink-0">
           <img
-            src={profilePhoto}
+            // src={profilePhoto}
             alt="Profile photo"
             className="w-40 h-40 rounded-full object-cover flex-shrink-0 ring-2 ring-ff-teal/60 ring-offset-4 ring-offset-ff-panel group-hover:ring-ff-teal group-hover:shadow-[0_0_28px_rgba(95,232,209,0.35)] transition"
           />
@@ -39,6 +43,7 @@ export default function About() {
           </p>
           <p className="text-base md:text-lg leading-relaxed hover:text-ff-teal transition">
             I'm currently in my 2A term at the University of Waterloo for Computer Engineering, but I'm originally from Vancouver, BC.
+            In my free time, I like to play (mostly gacha) games, watch anime, read & write, and play basketball. 
           </p>
         </div>
       </motion.div>
