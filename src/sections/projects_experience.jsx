@@ -4,11 +4,13 @@ const experience = [
   {
     title: "AI Adoption Software Developer",
     description: "Hauser Industries & Communitech",
+    stack: ["React", "TypeScript", "FastAPI", "Python", "LangChain", "NetSuite"],
     tech: "Built a full-stack AI-assisted quoting engine (React/TS + FastAPI) that estimates costs with a multi-agent LangChain workflow. Added an admin interface for quote configuration and automated NetSuite data entry end-to-end.",
   },
   {
     title: "Firmware Engineering Intern",
     description: "Mircom Group of Companies",
+    stack: ["C", "Python", "Tkinter", "STM32"],
     tech: "Built a cross-platform Python/Tkinter tool for flashing STM32 firmware over serial and USB, and an embedded C bootloader for over-the-air updates. Automated the team's regression and QA test suite.",
   },
 ];
@@ -18,24 +20,28 @@ const projects = [
     title: "Parry Arena",
     link: "https://github.com/amcli/HackAndSlash",
     description: "A C# Unity combat game with dynamic, reactive enemy AI",
+    stack: ["C#", "Unity"],
     tech: "A shared combat system for players and AI, with enemies that react dynamically to the player's attacks based on adjustable behavior parameters.",
   },
   {
     title: "DnD Campaign Manager",
     link: "https://github.com/amcli/campaign-manager",
     description: "A Java/Spring Boot backend for managing tabletop RPG campaigns",
+    stack: ["Java", "Spring Boot", "MySQL", "Docker"],
     tech: "A polymorphic schema and REST API supporting multiple tabletop RPG rule systems, built with Spring Boot, MySQL, and Docker.",
   },
   {
     title: "Goblinator",
     link: "https://github.com/plane-paper/Goblinator",
     description: "A web app that translates Gen-Z slang to and from English",
+    stack: ["Python", "Llama 3.2", "React", "Vercel"],
     tech: "A fine-tuned Llama 3.2 model paired with a React frontend, deployed via Vercel CI/CD.",
   },
   {
     title: "Fishy Business!",
     link: "https://github.com/amcli/gdc-jam-2025",
     description: "A fishing & restaurant management game in Godot",
+    stack: ["Godot", "GDScript"],
     tech: "Randomized fish attributes and spawn conditions, with finite-state-machine-driven AI for realistic fish behavior.",
   },
 ];
@@ -57,7 +63,7 @@ export default function Projects_Experience() {
 
       <div className="relative z-10 space-y-16">
         <CardGrid label="MODULE β" heading="Experience" items={experience} boldDescription />
-        <CardGrid label="MODULE γ" heading="Projects" items={projects} />
+        <CardGrid label="MODULE γ" heading="Projects" items={projects} showMedia />
       </div>
     </section>
   );
