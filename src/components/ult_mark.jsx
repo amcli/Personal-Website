@@ -1,4 +1,4 @@
-// Kept in sync with public/firefly.svg (the favicon) — same drawing.
+// Kept in sync with public/firefly.svg (the favicon)
 export default function UltMark({ className = "w-7 h-7" }) {
   return (
     <svg viewBox="0 0 736 736" className={className} aria-hidden="true">

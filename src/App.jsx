@@ -4,6 +4,7 @@ import Projects_Experience from './sections/projects_experience'
 import Contact from './sections/contact'
 import Navbar from './components/navbar'
 import Footer from './components/footer'
+import DiscordPresence from './components/discord_presence'
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
       <Projects_Experience />
       <Contact />
       <Footer />
+      <DiscordPresence />
     </div>
-    
+
   )
 }
 
