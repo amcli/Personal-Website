@@ -41,7 +41,7 @@ export default function Hero() {
           Software, Embedded, Fullstack, and Game Developer
         </h2>
         <p className="text-base sm:text-lg max-w-xl mx-auto text-ff-text">
-          Current 2A Computer Engineering student at the University of Waterloo
+          Current third-year Computer Engineering student at the University of Waterloo
         </p>
 
         <div className="mx-auto mt-2 h-px w-24 bg-gradient-to-r from-transparent via-ff-teal to-transparent" />

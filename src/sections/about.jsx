@@ -40,7 +40,7 @@ export default function About() {
             I also have a strong interest in AI/ML, Embedded, and Fullstack Development.
           </p>
           <p className="text-base md:text-lg leading-relaxed hover:text-ff-teal transition">
-            I'm currently in my 2A term at the University of Waterloo for Computer Engineering, but I'm originally from Vancouver, BC.
+            I'm currently in my third year at the University of Waterloo for Computer Engineering, but I'm originally from Vancouver, BC.
             In my free time, I like to play (mostly gacha) games, watch anime, read & write, and play basketball. 
           </p>
         </div>
