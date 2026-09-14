@@ -4,7 +4,7 @@ const experience = [
   {
     title: "AI Adoption Software Developer",
     description: "Hauser Industries & Communitech",
-    stack: ["React", "TypeScript", "FastAPI", "Python", "LangChain", "NetSuite"],
+    stack: ["Python", "TypeScript", "FastAPI", "LangChain", "React", "Docker", "NetSuite"],
     tech: "Built a full-stack AI-assisted quoting engine (React/TS + FastAPI) that estimates costs with a multi-agent LangChain workflow. Added an admin interface for quote configuration and automated NetSuite data entry end-to-end.",
   },
   {
@@ -26,9 +26,9 @@ const projects = [
   {
     title: "DnD Campaign Manager",
     link: "https://github.com/amcli/campaign-manager",
-    description: "A Java/Spring Boot backend for managing tabletop RPG campaigns",
-    stack: ["Java", "Spring Boot", "MySQL", "Docker"],
-    tech: "A polymorphic schema and REST API supporting multiple tabletop RPG rule systems, built with Spring Boot, MySQL, and Docker.",
+    description: "A Java/Spring Boot website for managing tabletop RPG campaigns",
+    stack: ["Java", "Spring Boot", "React", "MySQL"],
+    tech: "A polymorphic schema and REST API supporting multiple tabletop RPG rule systems, built with Spring Boot, MySQL, and React/TS.",
   },
   {
     title: "Goblinator",
