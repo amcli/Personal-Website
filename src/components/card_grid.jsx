@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import UltMark from "./ult_mark";
 
 const accents = [
   {
@@ -13,7 +14,81 @@ const accents = [
   },
 ];
 
-export default function CardGrid({ label, heading, items, boldDescription = false }) {
+// teal → glow → ember: the site's warm-cool holo palette (same stops as the
+// About-card halo). Interpolating along this gives each chip a distinct color
+// while the row as a whole reads as one gradient sweep.
+const STACK_STOPS = [
+  [95, 232, 209],   // ff-teal   #5fe8d1
+  [217, 247, 107],  // ff-glow   #d9f76b
+  [255, 122, 60],   // ff-ember  #ff7a3c
+];
+
+function stackColor(index, count) {
+  const t = count <= 1 ? 0.5 : index / (count - 1);
+  const scaled = t * (STACK_STOPS.length - 1);
+  const i = Math.min(STACK_STOPS.length - 2, Math.floor(scaled));
+  const localT = scaled - i;
+  const a = STACK_STOPS[i];
+  const b = STACK_STOPS[i + 1];
+  return [
+    Math.round(a[0] + (b[0] - a[0]) * localT),
+    Math.round(a[1] + (b[1] - a[1]) * localT),
+    Math.round(a[2] + (b[2] - a[2]) * localT),
+  ];
+}
+
+function MediaSlot({ media, title }) {
+  const items = Array.isArray(media) ? media.filter(Boolean) : media ? [media] : [];
+
+  if (items.length === 0) {
+    return (
+      <div className="relative mt-4 aspect-video w-full rounded-md border border-ff-line/70 overflow-hidden bg-gradient-to-br from-ff-bg-2 via-ff-panel to-ff-bg grid place-items-center">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          aria-hidden="true"
+          style={{
+            background:
+              "radial-gradient(55% 55% at 50% 50%, rgba(95,232,209,0.20) 0%, transparent 70%)",
+          }}
+        />
+        <UltMark className="relative w-14 h-14 opacity-55" />
+      </div>
+    );
+  }
+
+  if (items.length === 1) {
+    return (
+      <div className="mt-4 aspect-video w-full rounded-md border border-ff-line/70 overflow-hidden bg-ff-bg-2">
+        <img
+          src={items[0]}
+          alt={`${title} preview`}
+          loading="lazy"
+          className="w-full h-full object-cover"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-4 grid grid-cols-2 gap-2">
+      {items.slice(0, 4).map((src, i) => (
+        <div
+          key={i}
+          className="aspect-video w-full rounded-md border border-ff-line/70 overflow-hidden bg-ff-bg-2"
+        >
+          <img
+            src={src}
+            alt={`${title} preview ${i + 1}`}
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default function CardGrid({ label, heading, items, boldDescription = false, showMedia = false }) {
   return (
     <div className="max-w-7xl mx-auto text-center">
       {/*This framer motion sets up the fading and sliding of the heading */}
@@ -69,9 +144,33 @@ export default function CardGrid({ label, heading, items, boldDescription = fals
                   </h3>
                   <p className={`text-ff-text mb-2 ${boldDescription ? "font-bold" : ""}`}>{project.description}</p>
 
+                  {project.stack && project.stack.length > 0 && (
+                    <ul className="mb-3 flex flex-wrap justify-center gap-1.5">
+                      {project.stack.map((tag, i) => {
+                        const [r, g, b] = stackColor(i, project.stack.length);
+                        return (
+                          <li
+                            key={tag}
+                            style={{
+                              color: `rgb(${r},${g},${b})`,
+                              borderColor: `rgba(${r},${g},${b},0.45)`,
+                              backgroundColor: `rgba(${r},${g},${b},0.08)`,
+                              "--tag-glow": `rgba(${r},${g},${b},0.35)`,
+                            }}
+                            className="font-mono text-[10px] tracking-wider uppercase px-2 py-0.5 rounded border transition duration-200 hover:brightness-125 hover:shadow-[0_0_10px_var(--tag-glow)]"
+                          >
+                            {tag}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+
                   {project.tech && (
                     <p className="text-ff-muted text-sm whitespace-pre-line">{project.tech}</p>
                   )}
+
+                  {showMedia && <MediaSlot media={project.media} title={project.title} />}
                 </div>
               </div>
             </motion.div>

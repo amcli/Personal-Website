@@ -186,21 +186,43 @@ function ExpandedCard({
       transition={{ duration: 0.45, ease: "easeOut" }}
       className="relative w-[320px] max-w-[92vw]"
     >
-      {/* Holographic halo */}
+      {/* Soft teal halo — single-color, understated */}
       <div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ff-teal via-ff-glow to-ff-ember blur-xl opacity-20 pointer-events-none"
+        className="absolute -inset-px rounded-2xl blur-lg opacity-25 pointer-events-none bg-ff-teal"
         aria-hidden="true"
       />
 
-      {/* Panel */}
-      <div className="ff-corners relative rounded-2xl border border-ff-line bg-ff-panel/85 backdrop-blur-md shadow-[0_0_32px_rgba(95,232,209,0.28)] overflow-hidden">
-        {/* Top hairline (ff-eye-gradient echo) */}
+      {/* Panel — SAM HUD, single-hue turquoise */}
+      <div className="ff-corners relative rounded-2xl border border-ff-teal/25 bg-ff-panel/80 backdrop-blur-md shadow-[0_0_22px_rgba(95,232,209,0.18)] overflow-hidden">
+        {/* Subtle teal wash — one soft glow top-left, one bottom-right */}
         <div
-          className="h-px w-full ff-eye-gradient opacity-70"
+          className="absolute inset-0 pointer-events-none"
+          aria-hidden="true"
+          style={{
+            background: `
+              radial-gradient(65% 55% at 10% 15%, rgba(95,232,209,0.12) 0%, transparent 70%),
+              radial-gradient(55% 50% at 95% 100%, rgba(95,232,209,0.08) 0%, transparent 70%)
+            `,
+          }}
+        />
+
+        {/* Very fine teal scanlines */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-10"
+          aria-hidden="true"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(95,232,209,0.35) 3px, rgba(95,232,209,0.35) 4px)",
+          }}
+        />
+
+        {/* Top hairline — pure teal fade */}
+        <div
+          className="relative h-px w-full bg-gradient-to-r from-transparent via-ff-teal/70 to-transparent"
           aria-hidden="true"
         />
 
-        <div className="px-4 pt-3 pb-4">
+        <div className="relative px-4 pt-3 pb-4">
           <div className="flex items-center justify-between mb-2">
             <p className="ff-label flex items-center gap-2">
               <span
