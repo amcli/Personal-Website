@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import profilePhoto from "../assets/resumeimg.JPG";
 import FireflyFlyby from "../components/firefly_flyby";
+import LastPlayedDisc from "../components/last_played_disc";
 
 export default function About() {
   return (
@@ -22,13 +22,9 @@ export default function About() {
 
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ff-teal via-ff-glow to-ff-ember blur-xl opacity-0 group-hover:opacity-15 transition-opacity duration-150 z-0"></div>
 
-        {/* Portrait Image Placeholder */}
+        {/* Spinning "last played" disc — album cover from Lanyard/Spotify presence */}
         <div className="relative z-10 flex-shrink-0">
-          <img
-            src={profilePhoto}
-            alt="Profile photo"
-            className="w-40 h-40 rounded-full object-cover flex-shrink-0 ring-2 ring-ff-teal/60 ring-offset-4 ring-offset-ff-panel group-hover:ring-ff-teal group-hover:shadow-[0_0_28px_rgba(95,232,209,0.35)] transition"
-          />
+          <LastPlayedDisc />
         </div>
 
         {/* Text Content */}
