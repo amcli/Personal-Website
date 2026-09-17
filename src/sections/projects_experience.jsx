@@ -1,4 +1,5 @@
 import CardGrid from "../components/card_grid";
+import fishy from "../assets/fishy-business.png";
 
 const experience = [
   {
@@ -43,6 +44,7 @@ const projects = [
     description: "A fishing & restaurant management game in Godot",
     stack: ["Godot", "GDScript"],
     tech: "Randomized fish attributes and spawn conditions, with finite-state-machine-driven AI for realistic fish behavior.",
+    media: { src: fishy, link: "https://gaioc.itch.io/fishy-business" },
   },
 ];
 

@@ -4,12 +4,10 @@ import UltMark from "./ult_mark";
 const accents = [
   {
     ring: "ring-ff-teal",
-    shadow: "group-hover:shadow-[0_0_32px_rgba(95,232,209,0.25)]",
     title: "hover:from-ff-teal hover:to-ff-glow",
   },
   {
     ring: "ring-ff-ember",
-    shadow: "group-hover:shadow-[0_0_32px_rgba(255,122,60,0.25)]",
     title: "hover:from-ff-ember hover:to-ff-glow",
   },
 ];
@@ -37,8 +35,50 @@ function stackColor(index, count) {
   ];
 }
 
+function normalizeMedia(media) {
+  const raw = Array.isArray(media) ? media : media ? [media] : [];
+  return raw
+    .map((item) => {
+      if (!item) return null;
+      if (typeof item === "string") return { src: item, link: null };
+      if (item.src) return { src: item.src, link: item.link || null };
+      return null;
+    })
+    .filter(Boolean);
+}
+
+function MediaFrame({ item, alt, className, children }) {
+  const content = (
+    <img
+      src={item.src}
+      alt={alt}
+      loading="lazy"
+      className="w-full h-full object-cover"
+    />
+  );
+  if (item.link) {
+    return (
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${className} block transition-colors duration-200 hover:border-ff-text/60`}
+      >
+        {content}
+        {children}
+      </a>
+    );
+  }
+  return (
+    <div className={className}>
+      {content}
+      {children}
+    </div>
+  );
+}
+
 function MediaSlot({ media, title }) {
-  const items = Array.isArray(media) ? media.filter(Boolean) : media ? [media] : [];
+  const items = normalizeMedia(media);
 
   if (items.length === 0) {
     return (
@@ -58,31 +98,23 @@ function MediaSlot({ media, title }) {
 
   if (items.length === 1) {
     return (
-      <div className="mt-4 aspect-video w-full rounded-md border border-ff-line/70 overflow-hidden bg-ff-bg-2">
-        <img
-          src={items[0]}
-          alt={`${title} preview`}
-          loading="lazy"
-          className="w-full h-full object-cover"
-        />
-      </div>
+      <MediaFrame
+        item={items[0]}
+        alt={`${title} preview`}
+        className="mt-4 aspect-video w-full rounded-md border border-ff-line/70 overflow-hidden bg-ff-bg-2"
+      />
     );
   }
 
   return (
     <div className="mt-4 grid grid-cols-2 gap-2">
-      {items.slice(0, 4).map((src, i) => (
-        <div
+      {items.slice(0, 4).map((item, i) => (
+        <MediaFrame
           key={i}
+          item={item}
+          alt={`${title} preview ${i + 1}`}
           className="aspect-video w-full rounded-md border border-ff-line/70 overflow-hidden bg-ff-bg-2"
-        >
-          <img
-            src={src}
-            alt={`${title} preview ${i + 1}`}
-            loading="lazy"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        />
       ))}
     </div>
   );
@@ -126,10 +158,10 @@ export default function CardGrid({ label, heading, items, boldDescription = fals
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="relative group"
             >
-              <div /*Wrapper class */ className={`relative transition-all duration-300 group-hover:-translate-y-1 rounded-2xl ${accent.shadow}`}>
+              <div /*Wrapper class */ className="relative rounded-2xl">
 
-                <div //Neon border on hover
-                  className={`absolute -inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300 ring-2 group-hover:animate-pulse ${accent.ring}`}
+                <div //Accent border on hover
+                  className={`absolute -inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300 ring-1 ${accent.ring}`}
                 ></div>
 
                 <div /*Card content*/ className="relative z-10 bg-ff-panel border border-ff-line p-6 rounded-2xl shadow-2xl">
