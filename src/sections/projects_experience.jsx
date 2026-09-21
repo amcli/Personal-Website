@@ -1,5 +1,6 @@
 import CardGrid from "../components/card_grid";
 import fishy from "../assets/fishy-business.png";
+import campaign from "../assets/CM-dashboard.png";
 
 const experience = [
   {
@@ -30,6 +31,7 @@ const projects = [
     description: "A Java/Spring Boot website for managing tabletop RPG campaigns",
     stack: ["Java", "Spring Boot", "React", "MySQL"],
     tech: "A polymorphic schema and REST API supporting multiple tabletop RPG rule systems, built with Spring Boot, MySQL, and React/TS.",
+    media: campaign
   },
   {
     title: "Goblinator",
