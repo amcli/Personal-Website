@@ -1,4 +1,5 @@
 import CardGrid from "../components/card_grid";
+import ProjectShowcase from "../components/project_showcase";
 import fishy from "../assets/fishy-business.png";
 import campaign from "../assets/CM-dashboard.png";
 
@@ -17,36 +18,55 @@ const experience = [
   },
 ];
 
-const projects = [
+const showcases = [
   {
-    title: "Parry Arena",
-    link: "https://github.com/amcli/HackAndSlash",
-    description: "A C# Unity combat game with dynamic, reactive enemy AI",
-    stack: ["C#", "Unity"],
-    tech: "A shared combat system for players and AI, with enemies that react dynamically to the player's attacks based on adjustable behavior parameters.",
+    key: "fullstack",
+    label: "Fullstack",
+    projects: [
+      {
+        title: "DnD Campaign Manager",
+        link: "https://github.com/amcli/campaign-manager",
+        description: "A Java/Spring Boot website for managing tabletop RPG campaigns",
+        stack: ["Typescript", "React", "Java", "Spring Boot", "MySQL"],
+        tech: "A polymorphic schema and REST API supporting multiple tabletop RPG rule systems, built with Spring Boot, MySQL, and React/TS.",
+        media: campaign
+      },
+      {
+        title: "Arknights Base Planner",
+        link: "https://github.com/amcli/arknights-riic-planner",
+        description: "A Rust/React optimiser that finds the most productive operator assignments for the Arknights base",
+        stack: ["TypeScript", "React", "Rust", "Axum", "Tokio", "Vite"],
+        tech: "A skill-description parser, a morale-aware production simulator and a simulated-annealing solver, served through an Axum REST API with a background job queue and a React/TS frontend.",
+      },
+      {
+        title: "Goblinator",
+        link: "https://github.com/plane-paper/Goblinator",
+        description: "A web app that translates Gen-Z slang to and from English",
+        stack: ["Python", "Llama 3.2", "React", "Vercel"],
+        tech: "A fine-tuned Llama 3.2 model paired with a React frontend, deployed via Vercel CI/CD.",
+      },
+    ],
   },
   {
-    title: "DnD Campaign Manager",
-    link: "https://github.com/amcli/campaign-manager",
-    description: "A Java/Spring Boot website for managing tabletop RPG campaigns",
-    stack: ["Java", "Spring Boot", "React", "MySQL"],
-    tech: "A polymorphic schema and REST API supporting multiple tabletop RPG rule systems, built with Spring Boot, MySQL, and React/TS.",
-    media: campaign
-  },
-  {
-    title: "Goblinator",
-    link: "https://github.com/plane-paper/Goblinator",
-    description: "A web app that translates Gen-Z slang to and from English",
-    stack: ["Python", "Llama 3.2", "React", "Vercel"],
-    tech: "A fine-tuned Llama 3.2 model paired with a React frontend, deployed via Vercel CI/CD.",
-  },
-  {
-    title: "Fishy Business!",
-    link: "https://github.com/amcli/gdc-jam-2025",
-    description: "A fishing & restaurant management game in Godot",
-    stack: ["Godot", "GDScript"],
-    tech: "Randomized fish attributes and spawn conditions, with finite-state-machine-driven AI for realistic fish behavior.",
-    media: { src: fishy, link: "https://gaioc.itch.io/fishy-business" },
+    key: "gamedev",
+    label: "Gamedev",
+    projects: [
+      {
+        title: "Parry Arena",
+        link: "https://github.com/amcli/HackAndSlash",
+        description: "A C# Unity combat game with dynamic, reactive enemy AI",
+        stack: ["C#", "Unity"],
+        tech: "A shared combat system for players and AI, with enemies that react dynamically to the player's attacks based on adjustable behavior parameters.",
+      },
+      {
+        title: "Fishy Business!",
+        link: "https://github.com/amcli/gdc-jam-2025",
+        description: "A fishing & restaurant management game in Godot",
+        stack: ["Godot", "GDScript"],
+        tech: "Randomized fish attributes and spawn conditions, with finite-state-machine-driven AI for realistic fish behavior.",
+        media: { src: fishy, link: "https://gaioc.itch.io/fishy-business" },
+      },
+    ],
   },
 ];
 
@@ -67,7 +87,7 @@ export default function Projects_Experience() {
 
       <div className="relative z-10 space-y-16">
         <CardGrid label="MODULE β" heading="Experience" items={experience} boldDescription />
-        <CardGrid label="MODULE γ" heading="Projects" items={projects} showMedia />
+        <ProjectShowcase label="MODULE γ" heading="Projects" showcases={showcases} />
       </div>
     </section>
   );
