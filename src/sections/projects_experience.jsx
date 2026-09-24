@@ -25,7 +25,7 @@ const showcases = [
     projects: [
       {
         title: "DnD Campaign Manager",
-        link: "https://github.com/amcli/campaign-manager",
+        github: "https://github.com/amcli/campaign-manager",
         description: "A Java/Spring Boot website for managing tabletop RPG campaigns",
         stack: ["Typescript", "React", "Java", "Spring Boot", "MySQL"],
         tech: "A polymorphic schema and REST API supporting multiple tabletop RPG rule systems, built with Spring Boot, MySQL, and React/TS.",
@@ -33,14 +33,14 @@ const showcases = [
       },
       {
         title: "Arknights Base Planner",
-        link: "https://github.com/amcli/arknights-riic-planner",
+        github: "https://github.com/amcli/arknights-riic-planner",
         description: "A Rust/React optimiser that finds the most productive operator assignments for the Arknights base",
         stack: ["TypeScript", "React", "Rust", "Axum", "Tokio", "Vite"],
         tech: "A skill-description parser, a morale-aware production simulator and a simulated-annealing solver, served through an Axum REST API with a background job queue and a React/TS frontend.",
       },
       {
         title: "Goblinator",
-        link: "https://github.com/plane-paper/Goblinator",
+        github: "https://github.com/plane-paper/Goblinator",
         description: "A web app that translates Gen-Z slang to and from English",
         stack: ["Python", "Llama 3.2", "React", "Vercel"],
         tech: "A fine-tuned Llama 3.2 model paired with a React frontend, deployed via Vercel CI/CD.",
@@ -53,14 +53,15 @@ const showcases = [
     projects: [
       {
         title: "Parry Arena",
-        link: "https://github.com/amcli/HackAndSlash",
+        github: "https://github.com/amcli/HackAndSlash",
         description: "A C# Unity combat game with dynamic, reactive enemy AI",
         stack: ["C#", "Unity"],
         tech: "A shared combat system for players and AI, with enemies that react dynamically to the player's attacks based on adjustable behavior parameters.",
       },
       {
         title: "Fishy Business!",
-        link: "https://github.com/amcli/gdc-jam-2025",
+        github: "https://github.com/amcli/gdc-jam-2025",
+        itch: "https://gaioc.itch.io/fishy-business",
         description: "A fishing & restaurant management game in Godot",
         stack: ["Godot", "GDScript"],
         tech: "Randomized fish attributes and spawn conditions, with finite-state-machine-driven AI for realistic fish behavior.",

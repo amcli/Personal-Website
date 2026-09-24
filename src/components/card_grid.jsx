@@ -1,15 +1,13 @@
 import { motion } from "framer-motion";
+import { FaGithub, FaItchIo } from "react-icons/fa";
 import UltMark from "./ult_mark";
 
-const accents = [
-  {
-    ring: "ring-ff-teal",
-    title: "hover:from-ff-teal hover:to-ff-glow",
-  },
-  {
-    ring: "ring-ff-ember",
-    title: "hover:from-ff-ember hover:to-ff-glow",
-  },
+const rings = ["ring-ff-teal", "ring-ff-ember"];
+
+// Optional per-project links, shown as small buttons under the preview
+const PROJECT_LINKS = [
+  { key: "github", label: "View on GitHub", Icon: FaGithub },
+  { key: "itch", label: "Play on itch.io", Icon: FaItchIo },
 ];
 
 // teal → glow → ember: the site's warm-cool holo palette (same stops as the
@@ -120,6 +118,29 @@ function MediaSlot({ media, title }) {
   );
 }
 
+// Sized like the stack tags so two buttons fit on one line even in the narrow two-column
+// cards on tablets; wrapping would push that card's preview out of line with its neighbour.
+function ProjectLinks({ links, project }) {
+  return (
+    <div className="flex flex-wrap justify-center gap-2">
+      {links.map((link) => (
+        <a
+          key={link.key}
+          href={project[link.key]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 rounded-md border border-ff-line bg-ff-bg-2/60 px-2 py-1.5 font-mono text-[10px] tracking-wider uppercase text-ff-muted transition duration-300 hover:text-ff-teal hover:border-ff-teal/60 hover:shadow-[0_0_16px_rgba(95,232,209,0.25)] focus:outline-none focus-visible:ring-2 focus-visible:ring-ff-teal/60"
+        >
+          <link.Icon className="w-3.5 h-3.5" aria-hidden="true" />
+          {link.label}
+          {/*Cards repeat these labels, so screen readers also hear which project each is for*/}
+          <span className="sr-only">: {project.title}</span>
+        </a>
+      ))}
+    </div>
+  );
+}
+
 export function SectionHeading({ label, heading, children }) {
   return (
     //This framer motion sets up the fading and sliding of the heading
@@ -148,8 +169,8 @@ export function CardList({ items, boldDescription = false, showMedia = false }) 
       className="grid grid-cols-1 md:grid-cols-2 md:auto-rows-fr gap-8"
     >
       {items.map((project, idx) => {
-        const accent = accents[idx % accents.length];
-        const titleClass = `inline-block transition duration-0 text-ff-text hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r ${accent.title}`;
+        const ring = rings[idx % rings.length];
+        const links = PROJECT_LINKS.filter((link) => project[link.key]);
 
         return (
           //this motion.div allows the cards to slide and fade in smoothly with a stagger effect
@@ -165,19 +186,11 @@ export function CardList({ items, boldDescription = false, showMedia = false }) 
             <div /*Wrapper class */ className="relative h-full rounded-2xl">
 
               <div //Accent border on hover
-                className={`absolute -inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300 ring-1 ${accent.ring}`}
+                className={`absolute -inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300 ring-1 ${ring}`}
               ></div>
 
               <div /*Card content*/ className="relative z-10 h-full flex flex-col bg-ff-panel border border-ff-line p-6 rounded-2xl shadow-2xl">
-                <h3 className="text-2xl font-semibold mb-2">
-                  {project.link ? (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className={titleClass}>
-                      {project.title}
-                    </a>
-                  ) : (
-                    <span className={titleClass}>{project.title}</span>
-                  )}
-                </h3>
+                <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
                 <p className={`text-ff-text mb-2 ${boldDescription ? "font-bold" : ""}`}>{project.description}</p>
 
                 {project.stack && project.stack.length > 0 && (
@@ -206,10 +219,11 @@ export function CardList({ items, boldDescription = false, showMedia = false }) 
                   <p className="text-ff-muted text-sm whitespace-pre-line">{project.tech}</p>
                 )}
 
-                {/*Pinned to the bottom so previews line up across cards of different text lengths*/}
-                {showMedia && (
-                  <div className="mt-auto pt-4">
-                    <MediaSlot media={project.media} title={project.title} />
+                {/*Pinned to the bottom so previews and links line up across cards of different text lengths*/}
+                {(showMedia || links.length > 0) && (
+                  <div className="mt-auto pt-4 space-y-4">
+                    {showMedia && <MediaSlot media={project.media} title={project.title} />}
+                    {links.length > 0 && <ProjectLinks links={links} project={project} />}
                   </div>
                 )}
               </div>
