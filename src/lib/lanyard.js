@@ -75,8 +75,8 @@ export function spotifyProgress(spotify, nowMs) {
   };
 }
 
-// Returns { className, rgba } — the class is what to pass to Tailwind bg-*/text-*,
-// the rgba is for inline box-shadow glows that need alpha.
+// Colors for a Discord status: `color` fills the status dot, `ring` and `halo` are the
+// rgba glows around it.
 export function statusPalette(discordStatus) {
   switch (discordStatus) {
     case "online":

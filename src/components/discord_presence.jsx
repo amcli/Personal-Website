@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import useLanyard from "../hooks/useLanyard";
@@ -304,13 +304,7 @@ export default function DiscordPresence() {
   const { primary, spotify, listeningToSpotify, status, discordUser } =
     useLanyard(userId);
 
-  const [userCollapsed, setUserCollapsed] = useState(false);
-  const initialized = useRef(false);
-
-  useEffect(() => {
-    setUserCollapsed(readCollapsed());
-    initialized.current = true;
-  }, []);
+  const [userCollapsed, setUserCollapsed] = useState(readCollapsed);
 
   const hasActivity = !!primary || !!listeningToSpotify;
   const showCard = !userCollapsed && (hasActivity || status !== "offline");
@@ -319,14 +313,14 @@ export default function DiscordPresence() {
 
   const toggle = (next) => {
     setUserCollapsed(next);
-    if (initialized.current) writeCollapsed(next);
+    writeCollapsed(next);
   };
 
   if (!userId) return null;
 
   return (
     <div
-      className="fixed z-70 bottom-4 left-4 sm:bottom-4 sm:left-4"
+      className="fixed z-70 bottom-4 left-4"
       style={{ maxWidth: "calc(100vw - 2rem)" }}
     >
       <AnimatePresence mode="wait">

@@ -7,45 +7,35 @@
 //      status message" must be ON, or activities[] will be empty.
 //   4. Optional Spotify: Discord -> Connections -> Spotify + "Display Spotify
 //      as your status" ON.
-//   5. Set VITE_LANYARD_USER_ID in .env.local (see .env.example).
+//   5. Set VITE_LANYARD_USER_ID in .env.local.
 //
 // The hook tries a WebSocket first (live updates), falling back to REST polling
-// after `wsRetryLimit` consecutive failures.
+// after `WS_RETRY_LIMIT` consecutive failures.
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getPrimaryActivity } from "../lib/lanyard";
 
 const REST_URL = (id) => `https://api.lanyard.rest/v1/users/${id}`;
 const WS_URL = "wss://api.lanyard.rest/socket";
+const POLL_MS = 45000;
+const WS_RETRY_LIMIT = 3;
 
 const OP_HELLO = 1;
 const OP_INITIALIZE = 2;
 const OP_HEARTBEAT = 3;
 
-const initialState = {
-  data: null,
-  loading: true,
-  error: null,
-  transport: null, // "ws" | "rest"
-};
-
-export default function useLanyard(userId, options = {}) {
-  const { pollMs = 45000, wsRetryLimit = 3 } = options;
-  const [state, setState] = useState(initialState);
+export default function useLanyard(userId) {
+  const [data, setData] = useState(null);
   const restTimerRef = useRef(null);
 
   useEffect(() => {
-    if (!userId) {
-      setState({ data: null, loading: false, error: new Error("Missing user id"), transport: null });
-      return;
-    }
+    if (!userId) return;
 
     let cancelled = false;
     let ws = null;
     let heartbeatTimer = null;
     let reconnectTimer = null;
     let wsFailures = 0;
-    let mode = "ws";
 
     const clearHeartbeat = () => {
       if (heartbeatTimer) {
@@ -66,40 +56,31 @@ export default function useLanyard(userId, options = {}) {
       }
     };
 
-    const applySnapshot = (data) => {
-      if (cancelled) return;
-      setState({ data, loading: false, error: null, transport: mode });
-    };
-
-    const applyError = (err) => {
-      if (cancelled) return;
-      setState((prev) => ({ ...prev, loading: false, error: err }));
+    const applySnapshot = (snapshot) => {
+      if (!cancelled) setData(snapshot);
     };
 
     const startRest = async () => {
-      mode = "rest";
       clearRestPoll();
       const tick = async () => {
         try {
           const res = await fetch(REST_URL(userId), { cache: "no-store" });
-          if (!res.ok) throw new Error(`Lanyard REST ${res.status}`);
+          if (!res.ok) return;
           const json = await res.json();
           if (json?.success && json.data) applySnapshot(json.data);
-        } catch (err) {
-          applyError(err);
+        } catch {
+          // Keep the last snapshot; the next poll tries again
         }
       };
       tick();
-      restTimerRef.current = setInterval(tick, pollMs);
+      restTimerRef.current = setInterval(tick, POLL_MS);
     };
 
     const startWs = () => {
-      mode = "ws";
       clearHeartbeat();
       try {
         ws = new WebSocket(WS_URL);
-      } catch (err) {
-        applyError(err);
+      } catch {
         scheduleReconnect();
         return;
       }
@@ -128,15 +109,12 @@ export default function useLanyard(userId, options = {}) {
         }
       };
 
-      ws.onerror = () => {
-        // onclose will handle reconnect
-      };
-
+      // A failed connection also fires close, which handles reconnecting
       ws.onclose = () => {
         clearHeartbeat();
         if (cancelled) return;
         wsFailures += 1;
-        if (wsFailures >= wsRetryLimit) {
+        if (wsFailures >= WS_RETRY_LIMIT) {
           startRest();
         } else {
           scheduleReconnect();
@@ -160,26 +138,21 @@ export default function useLanyard(userId, options = {}) {
       clearReconnect();
       clearRestPoll();
       if (ws) {
-        ws.onopen = ws.onmessage = ws.onerror = ws.onclose = null;
+        ws.onmessage = ws.onclose = null;
         try { ws.close(); } catch { /* noop */ }
       }
     };
-  }, [userId, pollMs, wsRetryLimit]);
+  }, [userId]);
 
   return useMemo(() => {
-    const data = state.data;
     const activities = data?.activities ?? [];
     const listeningToSpotify = !!data?.listening_to_spotify;
     return {
-      loading: state.loading,
-      error: state.error,
-      transport: state.transport,
       status: data?.discord_status ?? "offline",
-      activities,
       spotify: data?.spotify ?? null,
       listeningToSpotify,
       discordUser: data?.discord_user ?? null,
       primary: getPrimaryActivity(activities, listeningToSpotify),
     };
-  }, [state]);
+  }, [data]);
 }

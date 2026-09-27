@@ -1,6 +1,7 @@
 import Hero from './sections/hero'
 import About from './sections/about'
-import Projects_Experience from './sections/projects_experience'
+import Experience from './sections/experience'
+import Projects from './sections/projects'
 import Contact from './sections/contact'
 import Navbar from './components/navbar'
 import Footer from './components/footer'
@@ -12,7 +13,8 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <Projects_Experience />
+      <Experience />
+      <Projects />
       <Contact />
       <Footer />
       <DiscordPresence />

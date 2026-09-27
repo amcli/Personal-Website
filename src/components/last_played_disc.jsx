@@ -40,7 +40,6 @@ export default function LastPlayedDisc() {
       artist: spotify.artist ?? "",
       album: spotify.album ?? "",
       track_id: spotify.track_id ?? "",
-      cached_at: Date.now(),
     };
     if (cached?.track_id === next.track_id && cached?.album_art_url === next.album_art_url) return;
     writeCached(next);
@@ -88,7 +87,7 @@ export default function LastPlayedDisc() {
         {label}
       </p>
 
-      {/* Outer teal glow ring (matches the old portrait vibe) */}
+      {/* Outer teal glow ring */}
       <div
         className="absolute inset-0 rounded-full pointer-events-none opacity-70 group-hover:opacity-100 transition"
         style={{

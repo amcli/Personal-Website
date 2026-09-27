@@ -76,7 +76,6 @@ export default function FireflyFlyby({ count = 2, className = "" }) {
       return {
         id: i,
         top: `${20 + rand() * 56}%`,
-        rightward,
         duration: 10 + rand() * 6,
         delay: rand() * 8,
         repeatDelay: 6 + rand() * 16,
