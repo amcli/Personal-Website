@@ -1,6 +1,7 @@
 import ProjectExplorer from "../components/project_explorer";
 import fishy from "../assets/fishy-business.png";
 import campaign from "../assets/CM-dashboard.png";
+import arknights from "../assets/Arknights-RIIC-planner.png"
 
 // Filter options in the search bar; each project's `category` is one of these keys
 const categories = [
@@ -26,6 +27,7 @@ const projects = [
     description: "A Rust/React optimiser that finds the most productive operator assignments for the Arknights base",
     stack: ["TypeScript", "React", "Rust", "Axum", "Tokio", "Vite"],
     tech: "A skill-description parser, a morale-aware production simulator and a simulated-annealing solver, served through an Axum REST API with a background job queue and a React/TS frontend.",
+    media: arknights
   },
   {
     title: "Goblinator",

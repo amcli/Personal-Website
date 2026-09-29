@@ -32,12 +32,14 @@ export default function About() {
           <p className="ff-label">MODULE α</p>
           <h2 className="text-3xl md:text-4xl font-bold text-ff-text hover:text-ff-teal transition">About Me</h2>
           <p className="text-base md:text-lg leading-relaxed hover:text-ff-teal transition">
-            I’m a software developer passionate about building innovative user experiences, especially in the realm of AR/VR and games.
-            I also have a strong interest in AI/ML, Embedded, and Fullstack Development.
+            I'm a dev that builds things I'm passionate about. Currently fixated on fullstack and game development, but I'm also a big fan of embedded and AI/ML.
           </p>
           <p className="text-base md:text-lg leading-relaxed hover:text-ff-teal transition">
-            I'm currently in my third year at the University of Waterloo for Computer Engineering, but I'm originally from Vancouver, BC.
-            In my free time, I like to play (mostly gacha) games, watch anime, read & write, and play basketball. 
+            I'm currently in my third year at the University of Waterloo for Computer Engineering, but I'm from Vancouver.
+            Given free time, I like to play (mostly gacha) games, watch anime, listen to music, read & write, and play sports. 
+          </p>
+          <p className="text-base md:text-lg leading-relaxed hover:text-ff-teal transition">
+              Aside from my projects in tech, I'm also working on a sci-fi novel! Stay tuned for more updates :)
           </p>
         </div>
       </motion.div>
