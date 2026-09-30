@@ -46,6 +46,14 @@ const projects = [
     tech: "A shared combat system for players and AI, with enemies that react dynamically to the player's attacks based on adjustable behavior parameters.",
   },
   {
+    title: "Isometric TD",
+    category: "gamedev",
+    github: "https://github.com/amcli/isometric-td",
+    description: "A tower defense game in 2D isometric.",
+    stack: ["C#", "Unity"],
+    tech: "In progress! Currently under maintenance.",
+  },
+  {
     title: "Fishy Business!",
     category: "gamedev",
     github: "https://github.com/amcli/gdc-jam-2025",
