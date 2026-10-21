@@ -1,38 +1,26 @@
-import CardGrid from "../components/card_grid";
-
-const experience = [
-  {
-    title: "AI Adoption Software Developer",
-    description: "Hauser Industries & Communitech",
-    stack: ["Python", "TypeScript", "FastAPI", "LangChain", "React", "Docker", "NetSuite"],
-    tech: "Built a full-stack AI-assisted quoting engine (React/TS + FastAPI) that estimates costs with a multi-agent LangChain workflow. Added an admin interface for quote configuration and automated NetSuite data entry end-to-end.",
-  },
-  {
-    title: "Firmware Engineering Intern",
-    description: "Mircom Group of Companies",
-    stack: ["C", "Python", "Tkinter", "STM32"],
-    tech: "Built a cross-platform Python/Tkinter tool for flashing STM32 firmware over serial and USB, and an embedded C bootloader for over-the-air updates. Automated the team's regression and QA test suite.",
-  },
-];
+import CutPanel from "../components/hud/cut_panel";
+import SectionHeading from "../components/hud/section_heading";
+import StackChips from "../components/hud/stack_chips";
+import { experience } from "../data/content";
 
 export default function Experience() {
   return (
-    <section
-      id="experience"
-      className="relative overflow-hidden bg-gradient-to-b from-ff-bg via-ff-bg-2 to-ff-bg text-ff-text py-16 px-6 scroll-mt-20"
-    >
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          zIndex: 0,
-          background:
-            'radial-gradient(45% 35% at 10% 15%, rgba(95,232,209,0.10) 0%, transparent 70%)',
-        }}
-      />
-
-      <div className="relative z-10">
-        <CardGrid label="MODULE β" heading="Experience" items={experience} boldDescription />
-      </div>
+    <section id="experience" aria-labelledby="exp-h" className="flex scroll-mt-28 flex-col gap-5 lg:scroll-mt-44">
+      <SectionHeading id="exp-h" code="MODULE β" title="Experience" />
+      <ol className="flex flex-col gap-4">
+        {experience.map((job) => (
+          <li key={job.title}>
+            <CutPanel rim="rgba(95,232,209,0.32)" innerClassName="flex flex-col gap-3 p-5 sm:p-6">
+              <div className="flex flex-col gap-1.5">
+                <h3 className="font-display text-xl font-bold leading-tight sm:text-[22px]">{job.title}</h3>
+                <p className="font-hud text-[11px] uppercase tracking-[0.18em] text-ff-teal">{job.description}</p>
+              </div>
+              <p className="text-sm leading-relaxed text-ff-soft sm:text-[15px]">{job.tech}</p>
+              <StackChips stack={job.stack} />
+            </CutPanel>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }
