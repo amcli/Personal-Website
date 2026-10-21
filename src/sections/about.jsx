@@ -1,48 +1,26 @@
-import { motion } from "framer-motion";
-import FireflyFlyby from "../components/firefly_flyby";
-import LastPlayedDisc from "../components/last_played_disc";
+import CutPanel from "../components/hud/cut_panel";
+import SectionHeading from "../components/hud/section_heading";
+import Terminal from "../components/hud/terminal";
+
+const paragraph = "text-sm leading-[1.6] text-ff-soft sm:text-base sm:leading-[1.65]";
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="relative overflow-hidden bg-gradient-to-b from-ff-bg via-ff-bg-2 to-ff-bg text-ff-muted py-20 px-6 flex justify-center items-center scroll-mt-20"
-    >
-      <FireflyFlyby count={2} className="z-0" />
+    <section id="about" aria-labelledby="about-h" className="flex scroll-mt-28 flex-col gap-5 lg:scroll-mt-44">
+      <CutPanel innerClassName="flex flex-col gap-3 px-[18px] py-4 sm:px-7 sm:py-6">
+        <SectionHeading id="about-h" code="MODULE α" title="About Me" small />
+        <p className={paragraph}>
+          I'm a dev that loves creating things I have passion for. Currently fixated on fullstack and game development, but
+          I'm also a big fan of embedded and AI/ML. Outside of tech, I have an ongoing novel and many short stories in the workings!
+        </p>
+        <p className={paragraph}>
+          I'm currently in my third year at the University of Waterloo for Computer Engineering, but I'm from
+          Vancouver. Given free time, I like to play (mostly gacha) games, watch anime, listen to music, read &amp;
+          write, and play sports. 
+        </p>
+      </CutPanel>
 
-      <motion.div
-        initial={{ opacity: 0, y: 2 }}
-
-        whileInView={{opacity: 1, y: 0 }}
-
-        transition={{ duration: 0.5, ease: "easeOut" }}
-
-        className="ff-corners relative z-10 group max-w-4xl w-full p-8 rounded-2xl shadow-lg bg-ff-panel border border-ff-line flex flex-col md:flex-row items-center gap-8 hover:scale-105 hover:border-ff-teal/40 transition-all duration-150"
-    >
-
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ff-teal via-ff-glow to-ff-ember blur-xl opacity-0 group-hover:opacity-15 transition-opacity duration-150 z-0"></div>
-
-        {/* Spinning "last played" disc — album cover from Lanyard/Spotify presence */}
-        <div className="relative z-10 flex-shrink-0">
-          <LastPlayedDisc />
-        </div>
-
-        {/* Text Content */}
-        <div className="relative z-10 flex-1 space-y-4 text-center md:text-left text-ff-muted">
-          <p className="ff-label">MODULE α</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-ff-text hover:text-ff-teal transition">About Me</h2>
-          <p className="text-base md:text-lg leading-relaxed hover:text-ff-teal transition">
-            I'm a dev that builds things I'm passionate about. Currently fixated on fullstack and game development, but I'm also a big fan of embedded and AI/ML.
-          </p>
-          <p className="text-base md:text-lg leading-relaxed hover:text-ff-teal transition">
-            I'm currently in my third year at the University of Waterloo for Computer Engineering, but I'm from Vancouver.
-            Given free time, I like to play (mostly gacha) games, watch anime, listen to music, read & write, and play sports. 
-          </p>
-          <p className="text-base md:text-lg leading-relaxed hover:text-ff-teal transition">
-              Aside from my projects in tech, I'm also working on a sci-fi novel! Stay tuned for more updates :)
-          </p>
-        </div>
-      </motion.div>
+      <Terminal />
     </section>
   );
 }

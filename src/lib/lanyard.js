@@ -53,7 +53,7 @@ export function labelForActivity(activity, listeningToSpotify) {
 }
 
 export function formatElapsed(startMs, nowMs) {
-  if (!startMs) return "";
+  if (startMs == null) return "";
   const elapsed = Math.max(0, nowMs - startMs);
   const totalSec = Math.floor(elapsed / 1000);
   const h = Math.floor(totalSec / 3600);

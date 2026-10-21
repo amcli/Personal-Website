@@ -7,6 +7,7 @@
   --color-ff-panel: #151b22;
   --color-ff-line: #24303a;
   --color-ff-text: #e9f1ee;
+  --color-ff-soft: #c2cfcb;
   --color-ff-muted: #94a39f;
 
   --color-ff-teal: #5fe8d1;
@@ -14,6 +15,14 @@
   --color-ff-glow: #d9f76b;
   --color-ff-pink: #f5a3c7;
   --color-ff-ocean: #4aa8ff;
+
+  /* SAM's visor */
+  --color-hud-bg: #06090c;
+  --color-hud-glass: rgba(8, 13, 17, 0.9);
+
+  --font-display: "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-hud: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
 html {
@@ -21,7 +30,7 @@ html {
 }
 
 body {
-  @apply bg-ff-bg text-ff-text antialiased;
+  @apply bg-hud-bg text-ff-text font-body antialiased;
 }
 
 ::selection {
@@ -29,39 +38,66 @@ body {
   color: var(--color-ff-text);
 }
 
-.ff-eye-gradient {
-  background-image: linear-gradient(
-    90deg,
-    var(--color-ff-ocean),
-    var(--color-ff-teal) 45%,
-    var(--color-ff-pink)
-  );
+/* In the base layer so utilities like outline-none can still override it */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-ff-glow);
+    outline-offset: 3px;
+  }
 }
 
-.ff-label {
-  @apply font-mono text-xs tracking-[0.3em] text-ff-teal/80;
+/* Small mono caption beside headings, e.g. "MODULE α". Not text-transformed: uppercasing
+   would turn the Greek module letters into capitals (α -> Α). */
+.hud-label {
+  @apply font-hud text-[11px] tracking-[0.24em] text-ff-teal;
 }
 
-.ff-corners::before,
-.ff-corners::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-color: var(--color-ff-teal);
-  border-style: solid;
-  opacity: 0.7;
-  pointer-events: none;
+/* Chamfered corners (top-left and bottom-right), the HUD's panel shape */
+.hud-cut {
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
 }
-.ff-corners::before {
-  top: 10px;
-  left: 10px;
-  border-width: 1.5px 0 0 1.5px;
-  border-top-left-radius: 4px;
+.hud-cut-s {
+  clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
 }
-.ff-corners::after {
-  bottom: 10px;
-  right: 10px;
-  border-width: 0 1.5px 1.5px 0;
-  border-bottom-right-radius: 4px;
+
+/* Thin teal scrollbar for section screens that scroll inside themselves */
+.hud-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(95, 232, 209, 0.35) transparent;
+  scrollbar-gutter: stable;
+}
+
+/* Firefly's winged emblem, tinted by the background colour */
+.hud-wings,
+.hud-wings-sweep {
+  -webkit-mask: url("./assets/firefly-emblem-mask.svg") center / contain no-repeat;
+  mask: url("./assets/firefly-emblem-mask.svg") center / contain no-repeat;
+}
+.hud-wings {
+  background: var(--color-ff-teal);
+}/* A bright band that scans across the emblem */
+.hud-wings-sweep {
+  background: linear-gradient(100deg, transparent 44%, rgba(255, 255, 255, 0.95) 50%, transparent 56%);
+  background-size: 300% 100%;
+  animation: hud-sweep-x 6.5s linear infinite;
+}
+
+@keyframes hud-spin { to { transform: rotate(360deg); } }
+@keyframes hud-spin-rev { to { transform: rotate(-360deg); } }
+@keyframes hud-wave { 0%, 100% { transform: scaleY(0.45); } 50% { transform: scaleY(1); } }
+@keyframes hud-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes hud-sweep-x { from { background-position: 100% 0; } to { background-position: 0% 0; } }
+@keyframes hud-sweep-y { from { top: -18%; } to { top: 105%; } }
+
+.hud-spin { animation: hud-spin 28s linear infinite; }
+.hud-spin-rev { animation: hud-spin-rev 46s linear infinite; }
+.hud-spin-fast { animation: hud-spin 8s linear infinite; }
+.hud-wave { animation: hud-wave 1.2s ease-in-out infinite; transform-origin: 50% 50%; }
+.hud-blink { animation: hud-blink 1.8s ease-in-out infinite; }
+.hud-scan { animation: hud-sweep-y 3.4s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hud-spin, .hud-spin-rev, .hud-spin-fast, .hud-wave, .hud-blink, .hud-scan { animation: none; }
+  .hud-wings-sweep { animation: none; opacity: 0; }
 }

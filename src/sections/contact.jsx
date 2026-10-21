@@ -1,35 +1,24 @@
-import {
-  Mail,
-  Linkedin,
-  Phone,
-} from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
-
-const links = [
-  { href: "mailto:amcli@uwaterloo.ca", label: "Email", Icon: Mail, external: true },
-  { href: "https://www.linkedin.com/in/amcli/", label: "LinkedIn", Icon: Linkedin, external: true },
-  { href: "tel:7787065362", label: "Phone", Icon: Phone, external: false },
-  { href: "https://github.com/amcli", label: "GitHub", Icon: FaGithub, external: true },
-];
+import SectionHeading from "../components/hud/section_heading";
+import { contactLinks } from "../data/content";
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-ff-bg text-ff-text py-20 px-6 flex flex-col items-center scroll-mt-20">
-      <p className="ff-label mb-3">Δ ORDER</p>
-      <h2 className="text-3xl md:text-4xl font-bold text-ff-text mb-8">Contact Me</h2>
-      <div className="flex space-x-6">
-        {links.map(({ href, label, Icon, external }) => (
-          <a
-            key={label}
-            href={href}
-            aria-label={label}
-            {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-            className="p-3 rounded-xl border border-ff-line text-ff-text hover:text-ff-teal hover:border-ff-teal/60 hover:shadow-[0_0_20px_rgba(95,232,209,0.25)] transition duration-300"
-          >
-            <Icon className="w-8 h-8" size={32} />
-          </a>
+    <section id="contact" aria-labelledby="contact-h" className="flex scroll-mt-28 flex-col gap-5 lg:scroll-mt-44">
+      <SectionHeading id="contact-h" code="Δ ORDER" title="Contact Me" />
+      <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+        {contactLinks.map(({ href, label, Icon, external }) => (
+          <li key={label}>
+            <a
+              href={href}
+              {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="hud-cut-s flex min-h-[52px] items-center gap-3 bg-ff-teal/[0.08] px-4 font-display text-sm font-bold uppercase tracking-[0.12em] text-ff-teal shadow-[inset_0_0_0_1px_rgba(95,232,209,0.5)] transition-colors duration-200 hover:bg-ff-teal/20"
+            >
+              <Icon className="size-5 shrink-0" size={20} aria-hidden="true" />
+              {label}
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }
