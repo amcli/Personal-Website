@@ -1,5 +1,4 @@
 import { motion, useReducedMotion } from "framer-motion";
-import UltMark from "../ult_mark";
 
 // SAM's targeting optic: rotating rings and reticle arcs over Firefly's winged emblem.
 // The emblem is anchored on its flame/head (48.61%, 34.94% of the artwork) so the wings
@@ -49,10 +48,6 @@ export default function Optic({ size = 260, className = "", pulseKey }) {
           transition={{ duration: 0.75, ease: "easeOut" }}
         />
       )}
-
-      <div className="absolute inset-0 grid place-items-center">
-        <UltMark className="h-[17%] w-[17%] opacity-75 drop-shadow-[0_0_12px_rgba(95,232,209,0.5)]" />
-      </div>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import UltMark from "../ult_mark";
 import { SECTIONS } from "../../data/content";
 
 const TICKS = Array.from({ length: 49 }, (_, i) => ({
@@ -16,7 +17,7 @@ export default function CompassNav({ active, className = "" }) {
         aria-hidden="true"
         className="flex items-center justify-center gap-2.5 font-hud text-[11px] tracking-[0.3em] text-ff-teal"
       >
-        <span className="hud-wings block h-[30px] w-10" />
+        <UltMark className="h-7 w-7 drop-shadow-[0_0_6px_rgba(95,232,209,0.45)]" />
         HDG {current.hdg} · {current.label.toUpperCase()}
       </div>
 

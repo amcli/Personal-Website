@@ -23,7 +23,7 @@ export default function Hero() {
           <span className="text-ff-teal [text-shadow:0_0_26px_rgba(95,232,209,0.45)]">Andrew</span>
         </h1>
         <p className="max-w-[270px] text-[17px] font-medium leading-snug text-[#cad6d2] sm:max-w-none lg:text-[23px]">
-          Software, Embedded, Fullstack, and Game Developer
+          Embedded, Fullstack, and Game Developer
         </p>
         <p className="max-w-[280px] text-sm leading-normal text-ff-muted sm:max-w-[520px] lg:text-[17px]">
           Current third-year Computer Engineering student at the University of Waterloo

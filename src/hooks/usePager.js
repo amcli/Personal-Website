@@ -9,6 +9,22 @@ const isTyping = (el) => !!el?.closest?.("input, textarea, select, [contentedita
 // The page on screen (pages that are animating out are marked "leaving")
 const currentPage = () => document.querySelector('[data-pager-page="current"]');
 
+// True when some scrollable element between `target` and the page can scroll in `dir`;
+// the browser scrolls that element, so the wheel shouldn't also change page.
+// Elements marked data-pager-lock (e.g. the terminal) never change page from a wheel or swipe
+const inLockedZone = (target) => !!target?.closest?.("[data-pager-lock]");
+
+function nestedCanScroll(target, dir, page) {
+  for (let el = target; el && el !== page && el !== document.body; el = el.parentElement) {
+    if (el.scrollHeight <= el.clientHeight + 1) continue;
+    const { overflowY } = getComputedStyle(el);
+    if (overflowY !== "auto" && overflowY !== "scroll") continue;
+    const room = dir > 0 ? Math.ceil(el.scrollTop + el.clientHeight) < el.scrollHeight - 1 : el.scrollTop > 1;
+    if (room) return true;
+  }
+  return false;
+}
+
 function indexFromHash(ids) {
   const i = ids.indexOf(window.location.hash.slice(1));
   return i < 0 ? 0 : i;
@@ -58,7 +74,7 @@ export default function usePager(ids, enabled) {
     };
 
     const onWheel = (e) => {
-      if (e.ctrlKey) return; // pinch zoom
+      if (e.ctrlKey || inLockedZone(e.target)) return; // pinch zoom, or over a locked zone
       const now = performance.now();
       const gap = now - g.lastWheel;
       g.lastWheel = now;
@@ -68,6 +84,13 @@ export default function usePager(ids, enabled) {
       if (e.deltaMode === 1) dy *= 16;
       else if (e.deltaMode === 2) dy *= window.innerHeight;
       const dir = dy > 0 ? 1 : -1;
+
+      // A scroll box inside the page (e.g. the terminal log) that can still move this way
+      if (nestedCanScroll(e.target, dir, currentPage())) {
+        g.acc = 0;
+        g.lastInner = now;
+        return;
+      }
 
       if (canScroll(dir)) {
         // Over the page the browser scrolls it; over the optic or readouts, scroll it by hand
@@ -93,7 +116,10 @@ export default function usePager(ids, enabled) {
     };
 
     const onTouchStart = (e) => {
-      if (e.touches.length !== 1) return;
+      if (e.touches.length !== 1 || inLockedZone(e.target)) {
+        g.touchY = null;
+        return;
+      }
       g.touchY = e.touches[0].clientY;
       g.touchCan = { up: canScroll(-1), down: canScroll(1) };
     };
